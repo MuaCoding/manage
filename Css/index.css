@@ -1,0 +1,16 @@
+.layui-nav .layui-nav-item a .info-avatar {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  line-height: 25px;
+  border-radius: 15px;
+  overflow: hidden;
+  vertical-align: middle;
+  background: url(/Images/df.png) 50% no-repeat, #737d94;
+  cursor: pointer;
+}
+
+.layui-nav .layui-nav-item a .info-avatar .layui-nav-img {
+  width: 100%;
+  height: 100%;
+}
