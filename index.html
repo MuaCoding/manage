@@ -31,6 +31,7 @@
   <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
 
   <link href="/Css/layout/common.css" rel="stylesheet" />
+  <link href="/Css/layout/site.css" rel="stylesheet" />
   <link href="/Css/index.css" rel="stylesheet" />
 
 </head>
@@ -56,14 +57,6 @@
             </span>
             <em>小明</em>
           </a>
-          <!-- <dl class="layui-nav-child">
-            <dd>
-              <a href="">基本资料</a>
-            </dd>
-            <dd>
-              <a href="">安全设置</a>
-            </dd>
-          </dl> -->
         </li>
         <li class="layui-nav-item">
           <a href="">退出</a>
@@ -79,36 +72,96 @@
             <a class="" href="javascript:;">首页</a>
             <dl class="layui-nav-child">
               <dd>
-                <a href="javascript:;">列表1</a>
+                <a href="javascript:linkTo(/view/banner.html);">轮播管理</a>
               </dd>
               <dd>
-                <a href="javascript:;">列表二</a>
+                <a href="javascript:;">资质办理</a>
               </dd>
               <dd>
-                <a href="javascript:;">列表三</a>
+                <a href="javascript:;">我们承诺</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">我们专业</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">关于我们</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">合作客户</a>
+              </dd>
+            </dl>
+          </li>
+         
+          <li class="layui-nav-item">
+            <a href="javascript:;">电信增值业务审批</a>
+            <dl class="layui-nav-child">
+              <dd>
+                <a href="javascript:;">ICP-互联网信息服务业务</a>
+              </dd>
+               <dd>
+                <a href="javascript:;">EDI-许可证业务</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">SP-许可证业务</a>
+              </dd>
+            </dl>
+          </li>
+
+          <li class="layui-nav-item">
+            <a href="javascript:;">网络文化审批</a>
+            <dl class="layui-nav-child">
+              <dd>
+                <a href="javascript:;">网络文化经营许可证</a>
+              </dd>
+               <dd>
+                <a href="javascript:;">游戏版号</a>
+              </dd>
+            </dl>
+          </li>
+
+          <li class="layui-nav-item">
+            <a href="javascript:;">知识产权</a>
+            <dl class="layui-nav-child">
+              <dd>
+                <a href="javascript:;">软件著作权商标购买</a>
+              </dd>
+               <dd>
+                <a href="javascript:;">商标购买</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">商标注册</a>
               </dd>
             </dl>
           </li>
           <li class="layui-nav-item">
-            <a href="javascript:;">解决方案</a>
+            <a href="javascript:;">工商与税务</a>
             <dl class="layui-nav-child">
               <dd>
-                <a href="javascript:;">列表一</a>
+                <a href="javascript:;">解除异常</a>
               </dd>
               <dd>
-                <a href="javascript:;">列表二</a>
+                <a href="javascript:;">代理记账</a>
               </dd>
-
+              <dd>
+                <a href="javascript:;">公司注册</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">变更</a>
+              </dd>
+              <dd>
+                <a href="javascript:;">注册地址</a>
+              </dd>
             </dl>
           </li>
-
         </ul>
       </div>
     </div>
 
     <div class="layui-body">
       <!-- 内容主体区域 -->
-      <div style="padding: 15px;"></div>
+      <div style="padding: 15px;">
+        <iframe id="mainframe" name="mainframe" frameborder="0" src=""></iframe>
+      </div>
     </div>
 
     <div class="layui-footer">
@@ -135,6 +188,11 @@
       var element = layui.element;
 
     });
+    var frames = window.frames;
+    function linkTo(linkUrl, cateid, cateName) {
+      console.log(0)
+      window.frames[0].location.href = linkUrl;
+    }
   </script>
 </body>
 
