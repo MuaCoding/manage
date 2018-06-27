@@ -14,3 +14,13 @@
   width: 100%;
   height: 100%;
 }
+
+.content .page-title{
+  line-height: 40px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.content .action-bar{
+
+}

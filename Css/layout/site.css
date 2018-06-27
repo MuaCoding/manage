@@ -44,7 +44,9 @@ ol,ul {
 p {
     margin-bottom: 0
 }
-
+h1{
+    font-size: 2em;
+}
 .text_overflow {
     overflow: hidden;
     text-overflow: ellipsis;

@@ -28,7 +28,7 @@
 
 
   <link href="/Plugin/layui/css/layui.css" rel="stylesheet">
-  <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="/Css/layout/bootstrap.min.css" rel="stylesheet"> -->
 
   <link href="/Css/layout/common.css" rel="stylesheet" />
   <link href="/Css/layout/site.css" rel="stylesheet" />
@@ -67,27 +67,27 @@
     <div class="layui-side layui-bg-black">
       <div class="layui-side-scroll">
         <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <ul id="slide-menu" class="layui-nav layui-nav-tree" lay-filter="test">
           <li class="layui-nav-item layui-nav-itemed">
             <a class="" href="javascript:;">首页</a>
             <dl class="layui-nav-child">
-              <dd>
-                <a href="javascript:linkTo(/view/banner.html);">轮播管理</a>
+              <dd link="/view/banner.html">
+                <a>轮播管理</a>
               </dd>
-              <dd>
+              <dd link="/view/modify.html">
                 <a href="javascript:;">资质办理</a>
               </dd>
               <dd>
-                <a href="javascript:;">我们承诺</a>
+                <a href="/view/create.html" target="mainframe">我们承诺</a>
               </dd>
               <dd>
-                <a href="javascript:;">我们专业</a>
+                <a href="/view/modify.html" target="mainframe">我们专业</a>
               </dd>
               <dd>
-                <a href="javascript:;">关于我们</a>
+                <a href="/view/banner.html" target="mainframe">关于我们</a>
               </dd>
               <dd>
-                <a href="javascript:;">合作客户</a>
+                <a href="javascript:;" target="mainframe">合作客户</a>
               </dd>
             </dl>
           </li>
@@ -160,7 +160,7 @@
     <div class="layui-body">
       <!-- 内容主体区域 -->
       <div style="padding: 15px;">
-        <iframe id="mainframe" name="mainframe" frameborder="0" src=""></iframe>
+        <iframe id="mainframe" name="mainframe" frameborder="0" src="/view/banner.html"></iframe>
       </div>
     </div>
 
@@ -170,8 +170,6 @@
     </div>
   </div>
 
-
-
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/cssuseragent/2.1.31/cssua.min.js"></script>
   <script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
@@ -179,7 +177,7 @@
   <script src="https://cdn.bootcss.com/Swiper/3.1.2/js/swiper.min.js"></script>
   <script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
-  <script src="/Js/layout/bootstrap.min.js"></script>
+  <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
   <script>
@@ -188,11 +186,13 @@
       var element = layui.element;
 
     });
-    var frames = window.frames;
-    function linkTo(linkUrl, cateid, cateName) {
-      console.log(0)
-      window.frames[0].location.href = linkUrl;
-    }
+    (function(){
+      // $('#slide-menu li dl dd').click(function(){
+      //   var link = $('#slide-menu li dl dd').eq($(this).index()).attr('link');
+      //   $("#mainframe").attr("src",link);
+      // });
+    })();
+    
   </script>
 </body>
 
