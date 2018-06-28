@@ -13,9 +13,7 @@
 // });
 
 // 轮播切换
-function activeNav(a) {
-    $(".site-nav \x3e ul \x3e li").eq(a).addClass("active")
-};
+
 
 (function(){
     (function() {
@@ -34,18 +32,15 @@ function activeNav(a) {
     )();
 })();
 // 菜单栏显示隐藏
-$('.menu-btn').click(function(){
-    $('.open').toggleClass('open-nav');
-    $('.pop-bg').toggleClass('show');
-});
-$(function(){
-    $('.pop-bg').click(function(){
-        if($('.open').hasClass('open-nav')){
-            $('.open').removeClass('open-nav');
-            $('.pop-bg').removeClass('show');
-        }
-    });
-});
+(function() {
+    $(".layui-nav .layui-nav-item").eq(0).addClass("active");
+    $(".wrapper").eq(0).addClass("show");
+    $(".layui-nav .layui-nav-item").click(function() {
+        $(".layui-nav .layui-nav-item").removeClass("active").eq($(this).index()).addClass("active");
+        $(".wrapper").removeClass("show").eq($(this).index()).addClass("show");
+    })
+}
+)();
 
 (function() {  
     var cacheHeight = 0;  

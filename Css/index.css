@@ -15,6 +15,33 @@
   height: 100%;
 }
 
+.wrapper {
+
+}
+
+.login-panel{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    padding: 25px 40px 15px 40px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.login-panel > form{
+  margin-top: 15px;
+}
+
+.login-panel h1{
+    line-height: 50px;
+    text-align: center;
+}
+
+.login-panel  .layui-form-item{
+  text-align: center;
+}
 .content .page-title{
   line-height: 40px;
   overflow: hidden;
@@ -29,10 +56,25 @@
   /*width: 500px;*/
 }
 
+.content .layui-form-select dl{
+  z-index: 10005
+}
+
 .content .layui-form-label{
   width: 120px;
 }
 
 .content .layui-input-block{
   margin-left: 140px;
+}
+
+.layui-layout .layui-header .layui-nav .avtive{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 96px;
+  height: 5px;
+  background-color: #5FB878;
+  transition: all .2s;
+  -webkit-transition: all .2s;
 }

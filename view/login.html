@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="copyright" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <title>用户登录</title>
+  <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
+  <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
+
+  <link href="/Css/layout/common.css" rel="stylesheet" />
+  <link href="/Css/layout/site.css" rel="stylesheet" />
+  <link href="/Css/index.css" rel="stylesheet" />
+</head>
+
+<body class="layui-layout-body" style="background-color: #f5f7f9;">
+  <div class="login-panel">
+  	  <h1>管理平台登录</h1>
+  	<form class="layui-form" action="">
+	  <div class="layui-form-item">
+	    <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+	  </div>
+	  <div class="layui-form-item">
+	    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+	  </div>
+	  <div class="layui-form-item">
+	   	<button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo"><i class="layui-icon">&#xe605;</i>登录</button>
+	     <button type="reset" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe9aa;</i>重置</button>
+	  </div>
+	</form>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/Plugin/layui/layui.js"></script>
+  <script src="/Js/layout/site.js"></script>
+  <script type="text/javascript">
+  	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  
+	  //监听提交
+	  form.on('submit(formDemo)', function(data){
+	    layer.msg(JSON.stringify(data.field));
+	    return false;
+	  });
+	});
+  </script>
+</body>
+
+</html>
