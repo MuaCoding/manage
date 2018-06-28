@@ -18,9 +18,21 @@
 .content .page-title{
   line-height: 40px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .content .action-bar{
+  margin-bottom: 25px;
+}
 
+.content .form-group{
+  /*width: 500px;*/
+}
+
+.content .layui-form-label{
+  width: 120px;
+}
+
+.content .layui-input-block{
+  margin-left: 140px;
 }

@@ -1,5 +1,5 @@
-var apiUrl = "https://api.lhcharity.com"
-  , mobileSite = "http://m.lhcharity.com";
+var apiUrl = "https://www.easy-mock.com"
+  , mobileSite = "https://www.easy-mock.com";
 jQuery.support.cors = !0;
 (function(a) {
     a.method = function(b, c, d, e, f, g, h, k) {
