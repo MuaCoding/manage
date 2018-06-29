@@ -31,17 +31,8 @@
     }
     )();
 })();
-// 菜单栏显示隐藏
-(function() {
-    $(".layui-nav .layui-nav-item").eq(0).addClass("active");
-    $(".wrapper").eq(0).addClass("show");
-    $(".layui-nav .layui-nav-item").click(function() {
-        $(".layui-nav .layui-nav-item").removeClass("active").eq($(this).index()).addClass("active");
-        $(".wrapper").removeClass("show").eq($(this).index()).addClass("show");
-    })
-}
-)();
 
+// 设置iframe自适应高度
 (function() {  
     var cacheHeight = 0;  
     function run() {  

@@ -7,9 +7,6 @@
   <title>易企咨询-轮播管理</title>
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
-  <link href="https://cdn.bootcss.com/Swiper/3.1.2/css/swiper.min.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css" rel="stylesheet">
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
 
 
@@ -25,14 +22,7 @@
   <div class="content">
   	<h1 class="page-title">
   		<span>资质办理</span>
-  	</h1> 
-	<!-- <div class="action-bar">
-		<div class="bar-left">
-			<button class="layui-btn layui-btn-normal">
-				<i class="layui-icon layui-icon-add-1"></i>创建新的轮播
-			</button>
-		</div>
-	</div> -->
+  	</h1>
 	<form class="layui-form form-group" action="">
 	  <div class="layui-form-item">
 	    <label class="layui-form-label">标题</label>
@@ -66,13 +56,20 @@
 	    </div>
 	  </div>
 	  <div class="layui-form-item">
+      <label class="layui-form-label">图片</label>
+      <div class="layui-input-inline">
+	    <input id="img" type="text" name="avatar" lay-verify="required" placeholder="请上传图片" autocomplete="off" class="layui-input" >
+	    </div>
+	    <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button> 
+	  </div>
+	  <div class="layui-form-item">
 	    <label class="layui-form-label">发布时间</label>
 	    <div class="layui-input-block">
 	      <input type="text" class="layui-input" id="test1">
 	    </div>
 	  </div>
 	  <div class="layui-form-item">
-	    <label class="layui-form-label">发布时间</label>
+	    <label class="layui-form-label">发布内容</label>
 	    <div class="layui-input-block">
 	      <div id="editor">
 	        <p>请输入</p>
@@ -90,35 +87,15 @@
   </div>
 
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="https://cdn.bootcss.com/cssuseragent/2.1.31/cssua.min.js"></script>
   	<script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
   	<script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-  	<script src="https://cdn.bootcss.com/Swiper/3.1.2/js/swiper.min.js"></script>
-  	<script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js"></script>
   	<script src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
   	<script src="/Plugin/layui/layui.js"></script>
   	<!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
   	<script src="/Js/layout/root.js"></script>
   	<script src="/Js/layout/site.js"></script>
+  	<script src="/Js/create/create.js"></script>
   	<script>
-		layui.use('form', function(){
-		  var form = layui.form;
-		  //监听提交
-		  form.on('submit(formDemo)', function(data){
-		    layer.msg(JSON.stringify(data.field));
-		    return false;
-		  });
-		});
-		layui.use('laydate', function(){
-		  var laydate = layui.laydate;
-		  
-		  //执行一个laydate实例
-		  laydate.render({
-		    elem: '#test1',
-		    type: 'date',
-		    value: new Date()
-		  });
-		});
 	</script>
 	<script type="text/javascript">
         var E = window.wangEditor;
