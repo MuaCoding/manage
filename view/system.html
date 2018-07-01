@@ -72,7 +72,7 @@
                   <a href="/view/user.html" target="mainframe">用户管理</a>
                 </dd>
                 <dd>
-                  <a href="/view/user.html" target="mainframe">类别设置</a>
+                  <a href="/view/increase.html" target="mainframe">类别设置</a>
                 </dd>
               </dl>
             </li>
@@ -83,8 +83,8 @@
 
       <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 25px 25px 80px;">
-          <iframe id="mainframe" name="mainframe" class="layadmin-iframe" frameborder="0" src="/view/user.html" scrolling="auto"></iframe>
+        <div style="margin: 25px" id="scrollHeight">
+          <iframe id="mainframe" name="mainframe"  onload="this.height=this.contentWindow.document.body.scrollHeight" frameborder="0" src="/view/user.html" scrolling="auto"></iframe>
         </div>
       </div>
     </div>
@@ -95,7 +95,6 @@
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
   <script src="/Js/layout/bootstrap.min.js"></script>

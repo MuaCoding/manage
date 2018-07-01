@@ -8,7 +8,7 @@
         ,height: 315
         ,cellMinWidth: 80
         ,url: 'https://www.easy-mock.com/mock/5b345279f512b5707142c022/table/table' //数据接口
-        ,page: true //开启分页
+        ,page: false //开启分页
         ,cols: [[ //表头
           {field: 'id', title: '#', align: 'center'}
           ,{field: 'username', title: '图片', align: 'center'}

@@ -1,0 +1,28 @@
+.login-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 25px 40px 15px 40px;
+  width: 400px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-panel>h1 {
+  margin-top: 15px;
+}
+
+.login-panel .layui-form {
+  margin-top: 25px;
+}
+
+.login-panel h1 {
+  line-height: 50px;
+  text-align: center;
+}
+
+.login-panel .layui-form-item {
+  text-align: center;
+}

@@ -4,9 +4,10 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
-  <title>易企咨询-轮播管理</title>
+  <title>易企咨询</title>
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//qidian.gtimg.com/lulu/theme/peak/css/common/ui/Select.css">
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
 
 
@@ -18,91 +19,154 @@
   <link href="/Css/index.css" rel="stylesheet" />
 </head>
 
-<body class="layui-layout-body">
-  <div class="content">
-  	<h1 class="page-title">
-  		<span>资质办理</span>
-  	</h1>
-	<form class="layui-form form-group" action="">
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">标题</label>
-	    <div class="layui-input-block">
-	      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
-	    </div>
-	  </div>
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">所属类别</label>
-	    <div class="layui-input-block">
-	      <select name="city" lay-verify="required">
-	        <option value=""></option>
-	        <option value="0">北京</option>
-	        <option value="1">上海</option>
-	        <option value="2">广州</option>
-	        <option value="3">深圳</option>
-	        <option value="4">杭州</option>
-	      </select>
-	    </div>
-	  </div>
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">显示状态</label>
-	    <div class="layui-input-block">
-	      <input type="checkbox" name="like[write]" title="显示">
-	    </div>
-	  </div>
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">排序</label>
-	    <div class="layui-input-block">
-	      <input type="text" name="title" required  lay-verify="required" placeholder="请输入数字" autocomplete="off" class="layui-input">
-	    </div>
-	  </div>
-	  <div class="layui-form-item">
-      <label class="layui-form-label">图片</label>
-      <div class="layui-input-inline">
-	    <input id="img" type="text" name="avatar" lay-verify="required" placeholder="请上传图片" autocomplete="off" class="layui-input" >
-	    </div>
-	    <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button> 
-	  </div>
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">发布时间</label>
-	    <div class="layui-input-block">
-	      <input type="text" class="layui-input" id="test1">
-	    </div>
-	  </div>
-	  <div class="layui-form-item">
-	    <label class="layui-form-label">发布内容</label>
-	    <div class="layui-input-block">
-	      <div id="editor">
-	        <p>请输入</p>
-	    </div>
-	    </div>
-	  </div>
-	  
-	  <div class="layui-form-item">
-	    <div class="layui-input-block">
-	      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-	      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-	    </div>
-	  </div>
-	</form>
+<body class="layui-layout-body" style="min-height: 650px;">
+  <div id="edit" class="content">
+    <div class="input-group">
+      <label class="label">标题</label>
+      <input type="text" name="" id="title" class="input-item">
+    </div>
+    <div class="input-group">
+      <label class="label">所属类别</label>
+      <div class="select-box select-city">
+        <div class="select-header"> 请选择 </div>
+        <ul class="select-content">
+          
+        </ul>
+      </div>
+      
+      <!-- <div class="input-item">
+        <span>请选择</span>
+        <ul id="option-group" class="option-group">
+          <li value="" class="item"></li>
+        </ul>
+      </div> -->
+    </div>
+    <div class="input-group">
+      <label class="label">排序</label>
+      <input type="text" name="" id="sort" class="input-item">
+    </div>
+    <div class="input-group">
+      <label class="label">图片</label>
+      <div class="upload-list">
+        <img class="layui-upload-img" id="upload-img">
+        <span></span>
+      </div>
+      <div class="upload-bar">
+        <a type="file" id="file" href="javascript:void(0);" onclick="$('#file').click();">选择文件上传</a>
+        <!-- <input type="button" id="btnCrop" value="裁剪"> -->
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="label">发布内容</label>
+      <div id="editor">
+        <p>请输入</p>
+      </div>
+    </div>
+    <div class="buttons input-group">
+      <button id="submin-btn" class="layui-btn">立即提交</button>
+      <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+    </div>
+    <!-- <div class="layui-form form-group" lay-filter="edit">
+      <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+          <input id="title" type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">所属类别</label>
+        <div class="layui-input-block">
+          <select id="option-group" lay-verify="required">
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+          <input id="sort" type="text" name="sort" required lay-verify="required" placeholder="请输入数字" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">图片</label>
+        <div class="upload-list layui-input-inline">
+          <img class="layui-upload-img" id="upload-img">
+          <span></span>
+        </div>
+        <input type="file" id="file">
+        <input type="button" id="btnCrop" value="裁剪">
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">发布内容</label>
+        <div class="layui-input-block" id="edit-con">
+          <div id="editor">
+            <p>请输入</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button id="submin-btn" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+      </div>
+    </div> -->
   </div>
 
-	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
-  	<script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-  	<script src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
-  	<script src="/Plugin/layui/layui.js"></script>
-  	<!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
-  	<script src="/Js/layout/root.js"></script>
-  	<script src="/Js/layout/site.js"></script>
-  	<script src="/Js/create/create.js"></script>
-  	<script>
-	</script>
-	<script type="text/javascript">
-        var E = window.wangEditor;
-        var editor = new E( document.getElementById('editor') );
-        editor.customConfig.uploadImgServer = '/upload';
-        editor.create();
-    </script>
+  <div id="list" class="content">
+    <h1 class="page-title">
+      <span>轮播管理</span>
+    </h1>
+    <div class="action-bar clearfix">
+      <div class="bar-left fl">
+        <a class="layui-btn layui-btn-normal" data-method="offset" data-type="auto" href="/view/create.html" target="mainframe">
+          <i class="layui-icon">&#xe654;</i>新增
+        </a>
+      </div>
+      <div class="demoTable fr">
+        <div class="layui-inline">
+          <input class="layui-input" name="search" id="search" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="reload">搜索</button>
+      </div>
+    </div>
+    <div class="table">
+      <table id="main-table" lay-filter="test"></table>
+      <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+      </script>
+    </div>
+  </div>
+
+  <div id="index" class="content">
+    <div class="index-cover">
+      <img src="/Images/index.png" alt="">
+      <h3>欢迎来到易企咨询管理平台</h3>
+      <p>请使用左侧菜单进行操作</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
+  <script src="//qidian.gtimg.com/lulu/theme/peak/js/common/ui/Select.js"></script>
+  <script src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+  <script src="/Plugin/layui/layui.js"></script>
+  <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
+  <script src="/Js/layout/root.js"></script>
+  <script src="/Js/layout/site.js"></script>
+  <script src="/Js/create/create.js"></script>
+  <script>
+  </script>
+  <script type="text/javascript">
+    var E = window.wangEditor;
+    var editor = new E(document.getElementById('editor'));
+    editor.customConfig.uploadImgServer = '/upload';
+    editor.create();
+  </script>
 </body>
 
 </html>

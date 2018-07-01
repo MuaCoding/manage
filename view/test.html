@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <title>JS无级树树形菜单</title>
+  <style type="text/css">
+    .menuTree {
+      margin-left: 0px;
+    }
+
+    .menuTree div {
+      padding-left: 1px;
+    }
+
+    .menuTree div ul {
+      overflow: hidden;
+      display: none;
+      height: auto;
+      margin: 0;
+    }
+
+    .menuTree span {
+      display: block;
+      height: 20px;
+      line-height: 25px;
+      padding-left: 5px;
+      margin: 1px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #CCC;
+    }
+
+    .menuTree span:hover {
+      background-color: #e6e6e6;
+      color: #cf0404;
+    }
+
+    .menuTree a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .menuTree a:hover {
+      color: #06F;
+    }
+
+    .menuTree span {
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="menuTree" class="menuTree"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+  var json = [
+    {
+      "name": "1",
+      "userLevel": "+ 一级",
+      "list": [
+        {
+          //显示名称
+          "name": "2",
+          //跳转名称
+          "url": "url_herf",
+          //用户等级
+          "userLevel": "+ 二级",
+          //下级
+          "list": [
+            {
+              "name": "3",
+              "userLevel": "三级"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "userLevel": "+ a一级",
+      "list": [
+        {
+          //显示名称
+          "name": "2",
+          //跳转名称
+          "url": "url_herf",
+          //用户等级
+          "userLevel": "+ b二级",
+          //下级
+          "list": [
+            {
+              "name": "3",
+              "userLevel": "c三级"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  /*递归实现获取无级树数据并生成DOM结构*/
+  var str = "";
+  var forTree = function (o) {
+    // console.log(o)
+    for (var i = 0; i < o.length; i++) {
+      var urlstr = "";
+      console.log(o[i]["url"])
+      try {
+        if (typeof o[i]["url"] == "undefined") {
+          urlstr = "<div><span>" + o[i]["userLevel"] + o[i]["name"] + "</span><ul>";
+        } else {
+          urlstr = "<div><span>" + o[i]["userLevel"] + "<a href=" + o[i]["url"] + ">" + o[i]["name"] + "</a></span><ul>";
+        }
+        str += urlstr;
+        if (o[i]["list"] != null) {
+          forTree(o[i]["list"]);
+        }
+        str += "</ul></div>";
+      } catch (e) { }
+    }
+    return str;
+  }
+  /*添加无级树*/
+  document.getElementById("menuTree").innerHTML = forTree(json);
+
+  /*树形菜单*/
+  var menuTree = function () {
+    //给有子对象的元素加
+    $("#menuTree ul").each(function (index, element) {
+      var ulContent = $(element).html();
+      var spanContent = $(element).siblings("span").html();
+      if (ulContent) {
+        $(element).siblings("span").html(spanContent)
+      }
+    });
+
+    $("#menuTree").find("div span").click(function () {
+      var ul = $(this).siblings("ul");
+      var spanStr = $(this).html();
+      var spanContent = spanStr.substr(3, spanStr.length);
+      if (ul.find("div").html() != null) {
+        if (ul.css("display") == "none") {
+          ul.show(300);
+          // $(this).html("[-]" + spanContent);
+        } else {
+          ul.hide(300);
+          // $(this).html("[+] " + spanContent);
+        }
+      }
+    })
+  }()
+
+  /*树形列表展开*/
+  $("#btn_open").click(function () {
+    $("#menuTree ul").show(300);
+    curzt("-");
+  })
+
+  /*收缩*/
+  $("#btn_close").click(function () {
+    $("#menuTree ul").hide(300);
+    curzt("+");
+  })
+  function curzt(v) {
+    $("#menuTree span").each(function (index, element) {
+      var ul = $(this).siblings("ul");
+      var spanStr = $(this).html();
+      var spanContent = spanStr.substr(3, spanStr.length);
+      if (ul.find("div").html() != null) {
+        $(this).html("[" + v + "] " + spanContent);
+      }
+    });
+  }
+</script>

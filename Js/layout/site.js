@@ -12,43 +12,76 @@
 //     $('html').css('font-size', rem + "px");
 // });
 
+
+(function () {
+  var iframes = $('#mainframe');
+
+  for (var i = 0, j = iframes.length; i < j; ++i) {
+    // 放在闭包中，防止iframe触发load事件的时候下标不匹配
+    (function (_i) {
+      iframes[_i].onload = function () {
+        this.contentWindow.onbeforeunload = function () {
+          iframes[_i].style.visibility = 'hidden';
+          // iframes[_i].style.display = 'none';
+
+          iframes[_i].setAttribute('height', 'auto');
+        };
+
+        this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
+        console.log(this.contentWindow.document.body.scrollHeight)
+        $('#scrollHeight').css('height', this.contentWindow.document.body.scrollHeight + 'px')
+        this.style.visibility = 'visible';
+        // this.style.display = 'block';
+      };
+    })(i);
+  }
+})();
+
 // 轮播切换
 
-
-(function(){
-    (function() {
-        500 <= $(window).scrollTop() && $("#scroll-top").fadeIn();
-        var a;
-        $(window).scroll(function() {
-            clearTimeout(a);
-            a = setTimeout(function() {
-                500 <= $(window).scrollTop() ? $("#scroll-top").fadeIn() : $("#scroll-top").fadeOut()
-            }, 200)
-        });
-        $("#scroll-top").on("click", function() {
-            $(window).scrollTop(0)
-        })
-    }
-    )();
+// 回到顶部
+(function () {
+  (function () {
+    500 <= $(window).scrollTop() && $("#scroll-top").fadeIn();
+    var a;
+    $(window).scroll(function () {
+      clearTimeout(a);
+      a = setTimeout(function () {
+        500 <= $(window).scrollTop() ? $("#scroll-top").fadeIn() : $("#scroll-top").fadeOut()
+      }, 200)
+    });
+    $("#scroll-top").on("click", function () {
+      $(window).scrollTop(0)
+    })
+  })();
 })();
 
 // 设置iframe自适应高度
-(function() {  
-    var cacheHeight = 0;  
-    function run() {  
-        var mf = $("#mainframe")[0];  
-        // when the main frame has already been loaded, the check its height  
-        if (mf && mf.contentDocument && mf.contentDocument.body) {  
-            var iframeHeight = $("#mainframe")[0].contentDocument.body.clientHeight;  
-            if (iframeHeight && iframeHeight != cacheHeight) {  
-                // cache the main frame height  
-                cacheHeight = iframeHeight;  
-                $("#mainframe").height(iframeHeight);  
-            }  
-        }  
-        setTimeout(run, 200);  
-    }  
-    run();  
-})();  
+(function () {
+  var cacheHeight = 0;
+  // run();
+})();
 
+function run() {
+  var mf = $("#mainframe")[0];
+  // when the main frame has already been loaded, the check its height  
+  if (mf && mf.contentDocument && mf.contentDocument.body) {
+    var iframeHeight = $("#mainframe")[0].contentDocument.body.clientHeight;
+    if (iframeHeight && iframeHeight != cacheHeight) {
+      // cache the main frame height  
+      cacheHeight = iframeHeight;
+      $("#mainframe").height(iframeHeight);
+    }
+  }
+  setTimeout(run, 200);
+}
 
+// 全屏加载中
+loadShade = {
+  show: function () {
+    $("#FullScreenShade").fadeIn();
+  },
+  hide: function () {
+    $("#FullScreenShade").fadeOut();
+  }
+};

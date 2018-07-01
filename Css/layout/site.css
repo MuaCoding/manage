@@ -1,105 +1,147 @@
 @charset "UTF-8";
 html {
-    font-size: 100px
+  font-size: 100px
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    font-family: 'Hiragino Sans GB','微软雅黑',arial,sans-serif;
-    color: #333;
-    font-weight: 400;
-    background: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -ms-font-smoothing: antialiased;
-    font-smoothing: antialiased
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'Hiragino Sans GB', '微软雅黑', arial, sans-serif;
+  color: #333;
+  font-weight: 400;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased
 }
 
-i,b {
-    font-weight: 400;
-    font-style: normal
+i,
+b {
+  font-weight: 400;
+  font-style: normal
 }
 
 a {
-    color: #333;
-    text-decoration: none!important;
-    -webkit-transition: all .3s ease-in-out 0s;
-    -moz-transition: all .3s ease-in-out 0s;
-    -ms-transition: all .3s ease-in-out 0s;
-    transition: all .3s ease-in-out 0s
+  color: #333;
+  text-decoration: none !important;
+  -webkit-transition: all .3s ease-in-out 0s;
+  -moz-transition: all .3s ease-in-out 0s;
+  -ms-transition: all .3s ease-in-out 0s;
+  transition: all .3s ease-in-out 0s
 }
 
 a:link {
-    text-decoration: none
+  text-decoration: none
 }
 
-
-ol,ul {
-    margin-top: 0;
-    margin-bottom: 0
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 0
 }
 
 p {
-    margin-bottom: 0
+  margin-bottom: 0
 }
-h1{
-    font-size: 2em;
+
+h1 {
+  font-size: 2em;
 }
+
 .text_overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 
 .overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 
 .of {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .ov {
-    overflow: visible!important
+  overflow: visible !important
 }
 
 a {
-    -webkit-transition: all .1s ease-in-out 0s;
-    -moz-transition: all .1s ease-in-out 0s;
-    -ms-transition: all .1s ease-in-out 0s;
-    transition: all .1s ease-in-out 0s
+  -webkit-transition: all .1s ease-in-out 0s;
+  -moz-transition: all .1s ease-in-out 0s;
+  -ms-transition: all .1s ease-in-out 0s;
+  transition: all .1s ease-in-out 0s
 }
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    outline: 0
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0
 }
 
 a:hover {
-    color: #eb0000
+  color: #eb0000
 }
 
 img {
-    width: 100%
+  width: 100%
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    font-family: 'iconfont' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#FullScreenShade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: fixed url(about:blank) rgba(0, 0, 0, 0.3);
+  z-index: 19960816;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* display: none; */
+}
+
+#FullScreenShade span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#FullScreenShade span img {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
 }
 
 /*
@@ -107,4 +149,3 @@ img {
 *以上公共样式
 ***********************
 */
-

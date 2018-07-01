@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
-  <title>易企咨询-轮播管理</title>
+  <title>易企咨询</title>
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
   <link href="https://cdn.bootcss.com/Swiper/3.1.2/css/swiper.min.css" rel="stylesheet">
@@ -13,7 +13,7 @@
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
 
 
-  <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
+  <link href="../Plugin/layui/css/layui.css" rel="stylesheet" media="all">
   <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
 
   <link href="/Css/layout/common.css" rel="stylesheet" />
@@ -23,52 +23,35 @@
 
 <body class="layui-layout-body">
   <div class="content">
-  	<h1 class="page-title">
-  		<span>轮播管理</span>
-  	</h1> 
-	<div class="action-bar clearfix">
-		<div class="bar-left fl">
-			<button class="layui-btn layui-btn-normal">
-				<i class="layui-icon">&#xe654;</i>新增
-			</button>
-		</div>
-		<div class="layui-form bar-select">
-			<div class="layui-form-item select-item">
-			    <label class="layui-form-label">类别</label>
-			    <div class="layui-input-block">
-			      <select name="interest" lay-filter="aihao">
-			        <option value=""></option>
-			        <option value="0"></option>
-			        <option value="1">首页轮播</option>
-			        <option value="2">产品轮播</option>
-			      </select>
-			    </div>
-			</div>
-		</div>
-		
-	    <div class="demoTable fr">
-	      <div class="layui-inline">
-	        <input class="layui-input" name="search" id="search" autocomplete="off">
-	      </div>
-	      <button class="layui-btn" data-type="reload">搜索</button>
-	    </div>
-	</div>
-	<div class="table">
-		<table id="main-table" lay-filter="test"></table>
-	    <script type="text/html" id="barDemo">
-	      <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-	      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-	    </script>
-	</div>
+    <h1 class="page-title">
+      <span>轮播管理</span>
+    </h1>
+    <div class="action-bar clearfix">
+      <div class="bar-left fl">
+        <a class="layui-btn layui-btn-normal" data-method="offset" data-type="auto" href="/view/create.html" target="mainframe">
+          <i class="layui-icon">&#xe654;</i>新增
+        </a>
+      </div>
+      <div class="demoTable fr">
+        <div class="layui-inline">
+          <input class="layui-input" name="search" id="search" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="reload">搜索</button>
+      </div>
+    </div>
+    <div class="table">
+      <table id="main-table" lay-filter="test"></table>
+      <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+      </script>
+    </div>
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/cssuseragent/2.1.31/cssua.min.js"></script>
   <script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-  <script src="https://cdn.bootcss.com/Swiper/3.1.2/js/swiper.min.js"></script>
-  <script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js"></script>
-  <script src="/Plugin/layui/layui.js"></script>
+  <script src="../Plugin/layui/layui.js"></script>
   <script src="/Js/layout/bootstrap.min.js"></script>
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>

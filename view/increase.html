@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <title>易企咨询</title>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//qidian.gtimg.com/lulu/theme/peak/css/common/ui/Select.css">
+  <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
+
+
+  <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
+  <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
+
+  <link href="/Css/layout/common.css" rel="stylesheet" />
+  <link href="/Css/layout/site.css" rel="stylesheet" />
+  <link href="/Css/index.css" rel="stylesheet" />
+</head>
+
+<body class="layui-layout-body" style="min-height: 650px;">
+  <div class="content">
+    <div class="input-group">
+      <label class="label">标题</label>
+      <input type="text" name="" id="title" class="input-item">
+    </div>
+    <div class="input-group">
+      <label class="label">所属类别</label>
+      <div class="select-box select-city">
+        <div class="select-header"> 请选择 </div>
+        <ul class="select-content">
+
+        </ul>
+      </div>
+
+      <!-- <div class="input-item">
+        <span>请选择</span>
+        <ul id="option-group" class="option-group">
+          <li value="" class="item"></li>
+        </ul>
+      </div> -->
+    </div>
+    <div class="input-group">
+      <label class="label">排序</label>
+      <input type="text" name="" id="sort" class="input-item">
+    </div>
+    <div class="input-group">
+      <label class="label">图片</label>
+      <div class="upload-list" onclick="$('#file').click();">
+        <div class="layui-upload-img" id="upload-img"></div>
+        <span></span>
+      </div>
+      <div class="upload-bar">
+        <input type="file" id="file">
+        <a type="file" href="javascript:void(0);" onclick="avatar.upload()">确认上传</a>
+        <!-- <input type="button" id="btnCrop" value="裁剪"> -->
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="label">发布内容</label>
+      <script id="editor" type="text/plain" style="min-width: 869px;height:500px;"></script>
+    </div>
+    <div class="buttons input-group">
+      <button id="submin-btn" class="layui-btn" onclick="avatar.finishUpload()">立即提交</button>
+      <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
+  <script src="/Plugin/layui/layui.js"></script>
+  <script src="/Plugin/cropbox/cropbox.js"></script>
+  <script src="/Plugin/ueditor/ueditor.config.js"></script>
+  <script src="/Plugin/ueditor/ueditor.all.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/Plugin/ueditor/lang/zh-cn/zh-cn.js"></script>
+  <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
+  <script src="/Js/layout/root.js"></script>
+  <script src="/Js/layout/site.js"></script>
+  <script src="/Js/user/avatar.js"></script>
+  <script>
+    var ue = UE.getEditor('editor');
+  </script>
+</body>
+
+</html>

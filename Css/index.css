@@ -2,7 +2,6 @@
   display: inline-block;
   height: 30px;
   width: 30px;
-  line-height: 25px;
   border-radius: 15px;
   overflow: hidden;
   vertical-align: middle;
@@ -15,90 +14,279 @@
   height: 100%;
 }
 
-.wrapper {
-
+.content {
+  padding-bottom: 80px;
 }
 
-.login-panel{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    padding: 25px 40px 15px 40px;
-    width: 400px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-}
-.login-panel > form{
-  margin-top: 15px;
+#index,
+#list,
+#edit {
+  display: none;
 }
 
-.login-panel h1{
-    line-height: 50px;
-    text-align: center;
-}
-
-.login-panel  .layui-form-item{
+#index .index-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
-.content .page-title{
+
+#index .index-cover img {
+  height: 300px;
+}
+
+#index .index-cover>h3 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+#index .index-cover>p {
+  font-size: 14px;
+  opacity: .7;
+  line-height: 35px;
+}
+
+.content .page-title {
   line-height: 40px;
   overflow: hidden;
   margin-bottom: 25px;
 }
 
-.content .action-bar{
+.content .action-bar {
   margin-bottom: 25px;
 }
 
-.content .form-group{
-  /*width: 500px;*/
-}
-
-.content .action-bar .bar-select{
+.content .action-bar .bar-select {
   float: left;
   width: 300px;
 }
 
-.content .action-bar .bar-select .select-item{
+.content .action-bar .bar-select .select-item {
   margin: 0;
 }
 
-.content .layui-form-select dl{
+.content .layui-form-select dl {
   z-index: 10005
 }
 
-.content .layui-form-label{
+.content .layui-form-label {
   width: 120px;
 }
 
-.content .layui-input-block{
+.content .layui-input-block {
   margin-left: 140px;
 }
 
-.content .layui-input-inline{
+.content .layui-input-inline {
   margin-left: 20px;
 }
 
+.content .upload-list {
+  display: inline-block;
+  width: 115px;
+  height: 115px;
+  border: 1px solid #ccc;
+}
 
-.layui-layout .layui-header .layui-nav .nav-item{
+.content .input-group {
+  position: relative;
+  width: 100%;
+  padding-left: 120px;
+  margin-top: 25px;
+}
+
+.content .input-group .upload-bar {
+  display: block;
+  margin-top: 25px;
+}
+
+.content .input-group a {
+  height: 37px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  line-height: 37px;
+  background-color: #fafafa;
+  color: #555;
+  float: left;
+  padding: 0 29px;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.content .input-group .label {
+  position: absolute;
+  width: 120px;
+  line-height: 42px;
+  text-align: center;
+  left: 0;
+  top: 0;
+  color: #555;
+  font-size: 15px;
+}
+
+.content .input-group .input-item {
+  position: relative;
+  width: 100%;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+}
+
+.content .input-group .option-group {
+  position: absolute;
+  z-index: 100006;
+  width: 100%;
+  top: 42px;
+  left: 0;
+  line-height: 45px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 5px 5px 6px #ccc;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.content .input-group .option-group li+li {
+  border-top: 1px solid #ccc;
+}
+
+.content input[type='button'] {
+  height: 33px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  line-height: 33px;
+  background-color: #fafafa;
+  color: #555;
+  padding: 0 15px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.content input[type='file'] {
+  float: left;
+  display: none;
+}
+
+.layui-layout .layui-header .layui-nav .nav-item {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   line-height: 60px;
 }
 
-.layui-layout .layui-header .layui-nav .nav-item a{
+.layui-layout .layui-header .layui-nav .nav-item a {
   display: block;
   padding: 0 20px;
   color: #fff;
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, .7);
   transition: all .3s;
   -webkit-transition: all .3s;
 }
 
-.layui-layout .layui-header .layui-nav .layui-nav-item.active a{
+.layui-layout .layui-header .layui-nav .layui-nav-item.active a {
   color: #fff;
 }
 
+/**
+* 模拟select
+**/
+
+.select-box {
+  position: relative;
+  width: 100%;
+}
+
+.select-city .select-header {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #c1c1c1;
+  padding-right: 26px;
+  background: url(img/arrow.png) no-repeat #f9f9f9;
+  background-position: 95px 15px;
+  line-height: 36px;
+  text-indent: 14px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.select-city .select-arrow {
+  background-position: 95px -9px;
+}
+
+.select-city .select-content {
+  width: 100%;
+  border-left: 1px solid #c1c1c1;
+  border-right: 1px solid #c1c1c1;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 99;
+  display: none;
+  background-color: #f9f9f9;
+}
+
+.select-city .select-content li {
+  display: block;
+  width: 100%;
+  height: 36px;
+  margin: 0;
+  border-bottom: 1px solid #c1c1c1;
+  line-height: 36px;
+  text-indent: 14px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.select-bank .select-header {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #c1c1c1;
+  padding-right: 26px;
+  background: url(img/arrow.png) no-repeat #f9f9f9;
+  background-position: 279px 15px;
+  line-height: 36px;
+  text-indent: 14px;
+  font-size: 16px;
+  color: #a9a9a9;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.select-bank .select-arrow {
+  background-position: 279px -9px;
+}
+
+.select-bank .select-content {
+  border-left: 1px solid #c1c1c1;
+  border-right: 1px solid #c1c1c1;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  z-index: 99;
+  display: none;
+  background-color: #f9f9f9;
+}
+
+.btn {
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 18px;
+  background-color: #009688;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}

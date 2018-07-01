@@ -13,39 +13,41 @@
 
   <link href="/Css/layout/common.css" rel="stylesheet" />
   <link href="/Css/layout/site.css" rel="stylesheet" />
-  <link href="/Css/index.css" rel="stylesheet" />
+  <link href="/Css/login/login.css" rel="stylesheet" />
 </head>
 
 <body class="layui-layout-body" style="background-color: #f5f7f9;">
   <div class="login-panel">
-  	  <h1>管理平台登录</h1>
-  	<form class="layui-form" action="">
-	  <div class="layui-form-item">
-	    <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-	  </div>
-	  <div class="layui-form-item">
-	    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-	  </div>
-	  <div class="layui-form-item">
-	   	<button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo"><i class="layui-icon">&#xe605;</i>登录</button>
-	     <button type="reset" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe9aa;</i>重置</button>
-	  </div>
-	</form>
+    <h1>管理平台登录</h1>
+    <div class="layui-form">
+      <div class="layui-form-item">
+        <input type="text" name="UserName" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input input-username">
+      </div>
+      <div class="layui-form-item">
+        <input type="Password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input input-password">
+      </div>
+      <div class="layui-form-item">
+        <button class="layui-btn layui-btn-normal submit">
+          <i class="layui-icon">&#xe605;</i>登录</button>
+        <button type="reset" class="layui-btn layui-btn-primary resert">
+          <i class="layui-icon">&#xe9aa;</i>重置</button>
+      </div>
+    </div>
   </div>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
+  <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
+  <script src="/Js/login/login.js"></script>
   <script type="text/javascript">
-  	
-	layui.use('form', function(){
-	  var form = layui.form;
-	  
-	  //监听提交
-	  form.on('submit(formDemo)', function(data){
-	    layer.msg(JSON.stringify(data.field));
-	    return false;
-	  });
-	});
+    layui.use('form', function () {
+      var form = layui.form;
+      // form.val('example', {
+      //   "username": "admin" // "name": "value"
+      //     ,
+      //   "Password": "123456"
+      // })
+    });
   </script>
 </body>
 

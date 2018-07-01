@@ -5,10 +5,104 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <title>易企咨询-轮播管理</title>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+  <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
+
+
+  <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
+  <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
+
+  <link href="/Css/layout/common.css" rel="stylesheet" />
+  <link href="/Css/layout/site.css" rel="stylesheet" />
+  <link href="/Css/index.css" rel="stylesheet" />
 </head>
 
 <body class="layui-layout-body">
-  modify
+  <div class="content">
+  	<h1 class="page-title">
+  		<span>资质办理</span>
+  	</h1>
+	<form class="layui-form form-group" action="">
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">标题</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">所属类别</label>
+	    <div class="layui-input-block">
+	      <select name="city" lay-verify="required">
+	        <option value=""></option>
+	        <option value="0">北京</option>
+	        <option value="1">上海</option>
+	        <option value="2">广州</option>
+	        <option value="3">深圳</option>
+	        <option value="4">杭州</option>
+	      </select>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">显示状态</label>
+	    <div class="layui-input-block">
+	      <input type="checkbox" name="like[write]" title="显示">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">排序</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="title" required  lay-verify="required" placeholder="请输入数字" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+      <label class="layui-form-label">图片</label>
+      <div class="layui-input-inline">
+	    <input id="img" type="text" name="avatar" lay-verify="required" placeholder="请上传图片" autocomplete="off" class="layui-input" >
+	    </div>
+	    <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button> 
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">发布时间</label>
+	    <div class="layui-input-block">
+	      <input type="text" class="layui-input" id="test1">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">发布内容</label>
+	    <div class="layui-input-block">
+	      <div id="editor">
+	        <p>请输入</p>
+	    </div>
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <div class="layui-input-block">
+	      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+	      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+	    </div>
+	  </div>
+	</form>
+  </div>
+
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
+  	<script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
+  	<script src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+  	<script src="/Plugin/layui/layui.js"></script>
+  	<!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
+  	<script src="/Js/layout/root.js"></script>
+  	<script src="/Js/layout/site.js"></script>
+  	<script src="/Js/create/create.js"></script>
+  	<script>
+	</script>
+	<script type="text/javascript">
+        var E = window.wangEditor;
+        var editor = new E( document.getElementById('editor') );
+        editor.customConfig.uploadImgServer = '/upload';
+        editor.create();
+    </script>
 </body>
 
 </html>
