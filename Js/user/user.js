@@ -19,5 +19,48 @@
           ,{field: 'score', title: '操作', align: 'center', toolbar: '#barDemo'}
         ]]
       });
+
+      //监听工具条
+      table.on('tool(demo)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'detail'){
+          layer.msg('ID：'+ data.id + ' 的查看操作');
+        } else if(obj.event === 'del'){
+          layer.confirm('真的删除行么', function(index){
+            obj.del();
+            layer.close(index);
+          });
+        } else if(obj.event === 'edit'){
+          layer.alert('编辑行：<br>'+ JSON.stringify(data))
+        }
+      });
     });
-})()
+})();
+
+$(function () {
+  user.init();
+});
+
+// 获取用户列表
+var data = null,
+  user = {
+    getData: function(){
+      $.method("GET", "/mock/5b345279f512b5707142c022/table/", null, null, null, null, function (a) {
+          console.log(a)
+　　        $("#user-list").tmpl(a.data).appendTo('#div_list');
+        },function(a){
+
+        }
+      )
+    },
+    modify: function(id){
+      alert(id)
+    },
+    delete: function(id){
+      
+    },
+    init: function () {
+      this.getData();
+    }
+
+  }

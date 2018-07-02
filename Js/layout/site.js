@@ -56,25 +56,6 @@
   })();
 })();
 
-// 设置iframe自适应高度
-(function () {
-  var cacheHeight = 0;
-  // run();
-})();
-
-function run() {
-  var mf = $("#mainframe")[0];
-  // when the main frame has already been loaded, the check its height  
-  if (mf && mf.contentDocument && mf.contentDocument.body) {
-    var iframeHeight = $("#mainframe")[0].contentDocument.body.clientHeight;
-    if (iframeHeight && iframeHeight != cacheHeight) {
-      // cache the main frame height  
-      cacheHeight = iframeHeight;
-      $("#mainframe").height(iframeHeight);
-    }
-  }
-  setTimeout(run, 200);
-}
 
 // 全屏加载中
 loadShade = {

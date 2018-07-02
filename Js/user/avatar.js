@@ -104,7 +104,6 @@ var imgData = null,
     },
     //初始化
     init: function () {
-      loadShade.show();
       this.getData();
     }
   };

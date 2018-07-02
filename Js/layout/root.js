@@ -1,6 +1,5 @@
 // var apiUrl = "http://192.168.1.102:8888"
-  var apiUrl = "https://www.easy-mock.com"
-  ,
+  var apiUrl = "https://www.easy-mock.com",
   mobileSite = "";
 jQuery.support.cors = !0;
 (function (a) {
@@ -12,8 +11,6 @@ jQuery.support.cors = !0;
       // date: (new Date).getTime()
       
     } : e;
-    console.log(e)
-    
     a.ajax({
       type: b,
       async: g,

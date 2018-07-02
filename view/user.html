@@ -19,6 +19,15 @@
 </head>
 
 <body class="layui-layout-body">
+  <script id="user-list" type="text/x-jquery-tmpl">
+    <li class="list-item clearfix">
+      <span>${id}</span>
+      <span>${username}</span>
+      <span>${classify}</span>
+      <span>${sex}</span>
+      <span onclick="user.modify(${id})">${username}</span>
+    </li>
+  </script>
   <div class="content">
   	<h1 class="page-title">
   		<span>用户管理</span>
@@ -36,17 +45,32 @@
       <button class="layui-btn" data-type="reload">搜索</button>
     </div>
   </div>
-	<div class="table">
-		<table id="main-table" lay-filter="test"></table>
+
+  <div class="user-list">
+    <div class="list-header clearfix">
+      <span>#</span>
+      <span>用户名</span>
+      <span>密码</span>
+      <span>状态</span>
+      <span>操作</span>
+    </div>
+    
+    <ul class="list-body" id="div_list">
+    </ul>
+    
+  </div>
+	<!-- <div class="table">
+		<table id="main-table" lay-filter="demo"></table>
     <script type="text/html" id="barDemo">
       <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
       <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
-	</div>
+	</div> -->
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
+  <script src="/Plugin/jquery.tmpl.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
   <script src="/Js/layout/bootstrap.min.js"></script>
   <script src="/Js/layout/root.js"></script>
