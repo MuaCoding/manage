@@ -291,32 +291,50 @@
   cursor: pointer;
 }
 
-.content .user-list{
+.content .user-list {
   min-width: 600px;
 }
 
-.content .user-list .list-header{
-    line-height: 54px;
-    border-bottom: 1px solid #eee;
-    background-color: #f8f8f8;
+.content .user-list .list-header {
+  line-height: 54px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f8f8;
 }
 
-.content .user-list .list-header span,.content .user-list li span{
-    float: left;
-    display: inline-block;
-    width: 140px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    color: #42454a;
+.content .user-list .list-header span,
+.content .user-list li span {
+  float: left;
+  display: inline-block;
+  width: 16.666%;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #42454a;
 }
 
 .content .user-list .list-body {
-      width: 100%;
-    line-height: 54px;
+  width: 100%;
+  line-height: 54px;
 }
 
 .content .user-list li {
   width: 100%;
-    border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.content .user-list li span {
+  text-align: center;
+}
+
+.content .user-list li span .btn-action {
+  display: inline-block;
+  line-height: 25px;
+  padding: 0 6px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+}
+
+.content .user-list li span .btn-action+.btn-action {
+  margin-left: 10px;
 }

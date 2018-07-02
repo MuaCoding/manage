@@ -1,5 +1,6 @@
 // var apiUrl = "http://192.168.1.102:8888"
-  var apiUrl = "https://www.easy-mock.com",
+  // var apiUrl = "http://27.46.3.40:8888",
+var apiUrl = "http://192.168.1.3:9999",
   mobileSite = "";
 jQuery.support.cors = !0;
 (function (a) {
@@ -133,3 +134,7 @@ function parseTimeStamp(a) {
   a = a.replace(/(\+[0-9]{2})(\:)([0-9]{2}$)/, " UTC$1$3");
   return a.split(".")[0].replace(/[/]/g, "-")
 };
+
+function isNull(data) {
+  return (data == "" || data == undefined || data == null) ? true : false;
+}

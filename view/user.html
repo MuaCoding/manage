@@ -21,11 +21,15 @@
 <body class="layui-layout-body">
   <script id="user-list" type="text/x-jquery-tmpl">
     <li class="list-item clearfix">
-      <span>${id}</span>
-      <span>${username}</span>
-      <span>${classify}</span>
-      <span>${sex}</span>
-      <span onclick="user.modify(${id})">${username}</span>
+      <span>${ID}</span>
+      <span>${UserName || ''}</span>
+      <span>${LoginCount}</span>
+      <span>${LastLoginTime || '未能获取'}</span>
+      <span>${LastLoginIp || '未能获取'}</span>
+      <span>
+        <em class="btn-action" onclick="user.modify(${ID})">修改</em>
+        <em class="btn-action" onclick="user.delete(${ID})">删除</em>
+      </span>
     </li>
   </script>
   <div class="content">
@@ -34,7 +38,7 @@
   	</h1> 
 	<div class="action-bar clearfix">
     <div class="bar-left fl">
-      <button class="layui-btn layui-btn-normal">
+      <button class="layui-btn layui-btn-normal" onclick="user.modify()">
         <i class="layui-icon">&#xe654;</i>新增
       </button>
     </div>
@@ -50,8 +54,9 @@
     <div class="list-header clearfix">
       <span>#</span>
       <span>用户名</span>
-      <span>密码</span>
-      <span>状态</span>
+      <span>登录次数</span>
+      <span>最后登录</span>
+      <span>登录Ip</span>
       <span>操作</span>
     </div>
     
