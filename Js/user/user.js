@@ -6,12 +6,12 @@ $(function() {
 
 // 获取用户列表
 var data = null,
+  adrs = null,
   user = {
     getData: function() {
-      $.method("GET", "/Users/getusers", null, {
-        page: 1
-      }, null, null, function(a) {
-        console.log(a);　　
+      $.method("GET", "/users/getallusers", null, null, null, null, function(a) {
+        console.log(a);　
+        adrs = a.data;　
         $("#user-list").tmpl(a.data).appendTo('#div_list');
       }, function(a) {
 
@@ -23,21 +23,21 @@ var data = null,
 
       //判断是否带有id，有则查询数据并显示
       aId = arguments[0] ? parseInt(arguments[0]) : null;
-      if (!isNull(aId)) {
+      if (aId) {
         $("#userDiv > .div-title > .title").html("修改");
         $("#userDiv .buttons > a.newBtn").addClass("none");
         $("#userDiv .buttons > a.editBtn").removeClass("none");
         var currentAdrs;
         for (var i in adrs) {
-          if (adrs[i].id == aId) {
+          if (adrs[i].ID == aId) {
             currentAdrs = adrs[i];
             break;
           }
         }
         if (!isNull(currentAdrs)) {
-          addr.id = currentAdrs.id;
-          addr.username = currentAdrs.username;
-          addr.password = currentAdrs.password;
+          addr.id = currentAdrs.ID;
+          addr.username = currentAdrs.UserName;
+          addr.password = currentAdrs.Password;
         }
       } else {
         $("#userDiv > .div-title > .title").html("新增");
@@ -49,7 +49,7 @@ var data = null,
       var userDiv = $("#userDiv");
       userDiv.find(".username input[type='text']").val(addr.username);
       userDiv.find(".password input[type='password']").val(addr.password);
-
+      userDiv.attr("data-attr-id", addr.id);
       //捕获地址填写表单 
       var $index = layer.open({
         type: 1,
@@ -71,20 +71,21 @@ var data = null,
       var formDiv = $(".input-list > ul");
       //用户数据
       var addrData = {
-        'id': null,
-        'username': formDiv.find(".a-name input[type='text']").val(),
-        'password': formDiv.find(".a-phone input[type='password']").val(),
+        id: null,
+        UserName: formDiv.find(".username input[type='text']").val(),
+        Password: formDiv.find(".password input[type='password']").val(),
       };
-
+      //如果为修改 获取地址ID
+      addrData.id = method ? null : $("#userDiv").attr("data-attr-id");
       //判断当前是添加还是修改 选择API
-      var apiUrl = method ? "User/addressAdd" : "User/addressEdit";
-
-      if (validForm(addrData)) {
-        $.method("POST", apiUrl, null, JSON.stringify(addrData), { "User-Token": user_token }, null, function(data) {
-          if (parseInt(data.res_code)) {
+      var apiUrl = method ? "/Users/add" : "/Users/update";
+      var $this = this;
+      if ($this.validForm(addrData)) {
+        $.method("POST", apiUrl, null, JSON.stringify(addrData), null, null, function(data) {
+          if (parseInt(data.Code)) {
             alert(method ? "添加成功！" : "修改成功！");
             layer.closeAll();
-            window.location.href = location.href;
+            window.location.href = window.location.href;
           } else {
             alert(method ? "添加失败！" : "修改失败！");
           }
@@ -95,9 +96,9 @@ var data = null,
     },
     delete: function(id) {
       var delAdrsFunc = function() {
-        var formdata = { 'id': id };
-        $.method("GET", "/User/addressDelete", null, formdata, null, null, function(data) {
-          if (parseInt(data.res_code)) {
+        var formdata = { id: id };
+        $.method("GET", "/users/ddeleteById", null, { id: id }, null, null, function(data) {
+          if (parseInt(data.Code)) {
             alert("成功删除");
             user.init();
           } else {
@@ -116,18 +117,40 @@ var data = null,
         console.log("缺少收货地址ID");
       }
     },
-    search: function(keyword) {
-      var formdata = { 'id': keyword };
-      $.method("GET", "/User/searchusers", null, formdata, null, null, function(data) {
-        $("#user-list").tmpl(a.data).appendTo('#div_list');
+    search: function() {
+      var keyword = $('#search').val();
+      if (!keyword) {
+        layer.msg('请输入用户名')
+        return;
+      }
+      var formdata = { name: keyword };
+      $.method("GET", "/users/getuserbyname", null, formdata, null, null, function(data) {
+        if (data.data != ''){
+          $("#div_list").empty();
+          $("#user-list").tmpl(data.data).appendTo('#div_list');
+        }else{
+          layer.msg('该用户名不存在')
+        }
       }, function(request) {
         console.log(request);
       });
     },
     validForm: function(data) {
       var invalid = false;
-
-      var formDiv = $(".DivContent > ul");
+      console.log(data)
+      var formDiv = $(".input-list > ul");
+      if (data.UserName == null || data.UserName == "" || typeof (data.UserName) == "undefined") {
+        layer.msg("用户名必填");
+        invalid = true;
+        return;
+      }
+      if (data.Password == null || data.Password == "" || typeof (data.Password) == "undefined") {
+        layer.msg("密码必填");
+        invalid = true;
+        return;
+      }
+      if (invalid) { return false; }
+      return true;
     },
     init: function() {
       this.getData();

@@ -1,7 +1,5 @@
 $(function () {
-  //设置页面标题
-  // setPageTitle("头像设置");
-  //头像页面初始化
+  //页面初始化
   avatar.init();
 });
 
@@ -32,6 +30,13 @@ var imgData = null,
       //     alert(request);
       //     loadShade.hide();
       // });
+    },
+    getOption: function(){
+      $.method("GET", "/Category/get", null, null, null, null, function (a) {
+        var data = $.buildHierarchy(a.data);
+        console.log(a)
+        // $this.getMenu(data);
+      }, function (a) { })
     },
     //头像裁剪插件
     crop: function (pic) {
@@ -64,16 +69,12 @@ var imgData = null,
     },
     //上传头像
     upload: function () {
-      // if (imgData == null) {
-      //   alert("请先选择头像裁剪");
-      //   return false;
-      // }
       var formdata = {
           pic: imgData
         },
         $this = this;
-      $.method("POST", "/mock/5b376013ac15607c8cb841ce/yqcx/file/upload", null, JSON.stringify(formdata), null, null, function (data) {
-        if (data.res_code) {
+      $.method("POST", "/file/upload", null, JSON.stringify(formdata), null, null, function (data) {
+        if (data.Code) {
           // $this.finishUpload(data.res_msg);
           imgUrl = data.msg;
         }
@@ -84,7 +85,7 @@ var imgData = null,
         }
       });
     },
-    //完成上传头像
+    //完成数据上传
     finishUpload: function () {
       var formdata = {
         PID: $(".select-header").attr('value'),
@@ -95,9 +96,7 @@ var imgData = null,
         Url: '',
         html: $('#editor').text()
       };
-      $.method("POST", "User/updateUser_Pic", null, JSON.stringify(formdata), {
-        "User-Token": user_token
-      }, null, function (data) {
+      $.method("POST", "User/updateUser_Pic", null, JSON.stringify(formdata), null, null, function (data) {
         
       }, function (request) {
       });
@@ -105,5 +104,6 @@ var imgData = null,
     //初始化
     init: function () {
       this.getData();
+      this.getOption();
     }
   };

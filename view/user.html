@@ -2,93 +2,147 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <title>易企咨询-用户管理</title>
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
-  <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
-  <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
-  <link href="/Css/layout/common.css" rel="stylesheet" />
-  <link href="/Css/layout/site.css" rel="stylesheet" />
-  <link href="/Css/index.css" rel="stylesheet" />
+  <link href="../../Plugin/layui/css/layui.css" rel="stylesheet" media="all">
+  <link href="../../Css/layout/bootstrap.min.css" rel="stylesheet">
+  <link href="../../Css/layout/common.css" rel="stylesheet" />
+  <link href="../../Css/layout/site.css" rel="stylesheet" />
+  <link href="../../Css/index.css" rel="stylesheet" />
 </head>
 
 <body class="layui-layout-body">
   <script id="user-list" type="text/x-jquery-tmpl">
     <li class="list-item clearfix">
       <span>${ID}</span>
-      <span>${UserName || ''}</span>
-      <span>${LoginCount}</span>
-      <span>${LastLoginTime || '未能获取'}</span>
-      <span>${LastLoginIp || '未能获取'}</span>
+      <span>${UserName || '&nbsp;'}</span>
+      <span>${LoginCount || '&nbsp;'}</span>
+      <span>${LastLoginTime || '&nbsp;'}</span>
+      <span>${LastLoginIp || '&nbsp;'}</span>
       <span>
         <em class="btn-action" onclick="user.modify(${ID})">修改</em>
         <em class="btn-action" onclick="user.delete(${ID})">删除</em>
       </span>
     </li>
   </script>
-  <div class="content">
-    <h1 class="page-title">
-      <span>用户管理</span>
-    </h1>
-    <div class="action-bar clearfix">
-      <div class="bar-left fl">
-        <button class="layui-btn layui-btn-normal" onclick="user.modify()">
-          <i class="layui-icon">&#xe654;</i>新增
-        </button>
-      </div>
-      <div class="demoTable fr">
-        <div class="layui-inline">
-          <input class="layui-input" name="search" id="search" autocomplete="off">
-        </div>
-        <button class="layui-btn" data-type="reload">搜索</button>
-      </div>
-    </div>
-    <div class="user-list">
-      <div class="list-header clearfix">
-        <span>#</span>
-        <span>用户名</span>
-        <span>登录次数</span>
-        <span>最后登录</span>
-        <span>登录Ip</span>
-        <span>操作</span>
-      </div>
-      <ul class="list-body" id="div_list">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+      <div class="layui-logo">易企咨询</div>
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item">
+          <a href="/">内容管理</a>
+        </li>
+        <li class="layui-nav-item active">
+          <a href="/view/increase.htmls">系统管理</a>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <span class="info-avatar">
+              <img class="layui-nav-img">
+            </span>
+            <em>小明</em>
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">退出</a>
+        </li>
       </ul>
     </div>
+    <div class="wrapper">
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul id="slide-menu" class="layui-nav layui-nav-tree" lay-filter="sys">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="javascript:;">首页</a>
+              <dl class="layui-nav-child">
+                <dd>
+                  <a href="/view/user.html" style="background-color: #009688;">用户管理</a>
+                </dd>
+                <dd>
+                  <a href="/view/increase.html">类别设置</a>
+                </dd>
+              </dl>
+            </li>
 
-    <div id="userDiv">
-      <div class="div-title">
-        <p class="title">添加用户</p>
+          </ul>
+        </div>
       </div>
-      <div class="input-list">
-        <ul>
-          <li class="username">
-            <span class="label">用户名</span>
-            <input type="text" class="input" maxlength="10" placeholder="请输入用户名">
-          </li>
-          <li class="password">
-            <span class="label">密码</span>
-            <input type="password" class="input" maxlength="2ss0" placeholder="请输入密码">
-          </li>
-        </ul>
+        <!-- 内容主体区域 -->
+      <div class="layui-body">
+        <div style="margin: 25px" id="scrollHeight">
+          <div class="content">
+            <h1 class="page-title">
+              <span>用户管理</span>
+            </h1>
+            <div class="action-bar clearfix">
+              <div class="bar-left fl">
+                <button class="layui-btn layui-btn-normal" onclick="user.modify()">
+                  <i class="layui-icon">&#xe654;</i>新增
+                </button>
+              </div>
+              <div class="demoTable fr">
+                <span style="margin-right: 10px;">用户名</span>
+                <div class="layui-inline">
+                  <input class="layui-input" name="search" id="search" autocomplete="off">
+                </div>
+                <button class="layui-btn" onclick="user.search()">搜索</button>
+              </div>
+            </div>
+            <div class="user-list">
+              <div class="list-header clearfix">
+                <span>#</span>
+                <span>用户名</span>
+                <span>登录次数</span>
+                <span>最后登录</span>
+                <span>登录Ip</span>
+                <span>操作</span>
+              </div>
+              <ul class="list-body" id="div_list">
+              </ul>
+            </div>
+
+            <div id="userDiv">
+              <div class="div-title">
+                <p class="title">添加用户</p>
+              </div>
+              <div class="input-list">
+                <ul>
+                  <li class="username">
+                    <span class="label">用户名</span>
+                    <input type="text" class="input" maxlength="10" placeholder="请输入用户名">
+                  </li>
+                  <li class="password">
+                    <span class="label">密码</span>
+                    <input type="password" class="input" maxlength="20" placeholder="请输入密码">
+                  </li>
+                </ul>
+              </div>
+              <div class="buttons">
+                <a href="javascript:void(0);" class="newBtn button" onclick="user.upload(true)">确认添加</a>
+                <a href="javascript:void(0);" class="editBtn button none" onclick="user.upload(false)">确认修改</a>
+                <a href="javascript:void(0);" class="cancelBtn button">取消</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="buttons">
-        <a href="javascript:void(0);" class="newBtn button" onclick="upload(true)">确认添加</a>
-        <a href="javascript:void(0);" class="editBtn button none" onclick="upload(false)">确认修改</a>
-        <a href="javascript:void(0);" class="cancelBtn button">取消</a>
-      </div>
+
     </div>
-    <!-- <div class="table">
-    <table id="main-table" lay-filter="demo"></table>
-    <script type="text/html" id="barDemo">
-      <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-    </script>
-  </div> -->
+    <div class="layui-footer">
+      <!-- 底部固定区域 -->
+      2017-2018 © 易企咨询管理平台
+    </div>
   </div>
+
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
   <script src="/Plugin/jquery.tmpl.js"></script>

@@ -56,6 +56,13 @@
   })();
 })();
 
+/** 
+* 判断是否null 
+* @param data 
+*/
+function isNull(data) {
+  return (data == "" || data == undefined || data == null) ? true : false;
+}
 
 // 全屏加载中
 loadShade = {

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <title>易企咨询</title>
@@ -20,52 +21,124 @@
 </head>
 
 <body class="layui-layout-body" style="min-height: 650px;">
-  <div class="content">
-    <div class="input-group">
-      <label class="label">标题</label>
-      <input type="text" name="" id="title" class="input-item">
+  <!-- 菜单选项 -->
+  <script id="option-list" type="text/x-jquery-tmpl">
+    <li class="option-item clearfix">
+      <a href="javascript:;" class="top">站点</a>
+      <ul >
+        <li class="opt-cell">
+          <a onclick="avatar.select()">首页轮播</a>
+        </li>
+      </ul>
+    </li>
+  </script>
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+      <div class="layui-logo">易企咨询</div>
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item">
+          <a href="/">内容管理</a>
+        </li>
+        <li class="layui-nav-item active">
+          <a href="/view/user.html">系统管理</a>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <span class="info-avatar">
+              <img class="layui-nav-img">
+            </span>
+            <em>小明</em>
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">退出</a>
+        </li>
+      </ul>
     </div>
-    <div class="input-group">
-      <label class="label">所属类别</label>
-      <div class="select-box select-city">
-        <div class="select-header"> 请选择 </div>
-        <ul class="select-content">
+    <div class="wrapper">
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul id="slide-menu" class="layui-nav layui-nav-tree" lay-filter="sys">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="javascript:;">首页</a>
+              <dl class="layui-nav-child">
+                <dd>
+                  <a href="/view/user.html">用户管理</a>
+                </dd>
+                <dd>
+                  <a href="/view/increase.html" style="background-color: #009688;">类别设置</a>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 内容主体区域 -->
+      <div class="layui-body">
+        <div style="margin: 25px" id="scrollHeight">
+          <div class="content">
+            <div class="input-group">
+              <label class="label">类别名称</label>
+              <input type="text" name="" id="title" class="input-item">
+            </div>
+            <div class="input-group">
+              <label class="label">所属类别</label>
+              <div class="select-box select-city">
+                <div class="select-header"> 请选择 </div>
+                <ul id="select-con" class="select-content">
 
-        </ul>
-      </div>
+                </ul>
+              </div>
 
-      <!-- <div class="input-item">
-        <span>请选择</span>
-        <ul id="option-group" class="option-group">
-          <li value="" class="item"></li>
-        </ul>
-      </div> -->
-    </div>
-    <div class="input-group">
-      <label class="label">排序</label>
-      <input type="text" name="" id="sort" class="input-item">
-    </div>
-    <div class="input-group">
-      <label class="label">图片</label>
-      <div class="upload-list" onclick="$('#file').click();">
-        <div class="layui-upload-img" id="upload-img"></div>
-        <span></span>
+              <!-- <div class="input-item">
+                  <span>请选择</span>
+                  <ul id="option-group" class="option-group">
+                    <li value="" class="item"></li>
+                  </ul>
+                </div> -->
+            </div>
+            <div class="input-group">
+              <label class="label">排序</label>
+              <input type="text" name="" id="sort" class="input-item">
+            </div>
+            <div class="input-group">
+              <label class="label">网站URL链接</label>
+              <input type="text" name="" id="Url" class="input-item">
+            </div>
+            <div class="input-group">
+              <label class="label">图片</label>
+              <div class="upload-list" onclick="$('#file').click();">
+                <div class="layui-upload-img" id="upload-img"></div>
+                <span></span>
+              </div>
+              <div class="upload-bar">
+                <input type="file" id="file">
+                <a type="file" href="javascript:void(0);" onclick="avatar.upload()">确认上传</a>
+                <!-- <input type="button" id="btnCrop" value="裁剪"> -->
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="label">发布内容</label>
+              <script id="editor" type="text/plain" style="min-width: 760px;height:500px;"></script>
+            </div>
+            <div class="buttons input-group">
+              <button id="submin-btn" class="layui-btn" onclick="avatar.finishUpload()">立即提交</button>
+              <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="upload-bar">
-        <input type="file" id="file">
-        <a type="file" href="javascript:void(0);" onclick="avatar.upload()">确认上传</a>
-        <!-- <input type="button" id="btnCrop" value="裁剪"> -->
-      </div>
     </div>
-    <div class="input-group">
-      <label class="label">发布内容</label>
-      <script id="editor" type="text/plain" style="min-width: 760px;height:500px;"></script>
-    </div>
-    <div class="buttons input-group">
-      <button id="submin-btn" class="layui-btn" onclick="avatar.finishUpload()">立即提交</button>
-      <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+    <div class="layui-footer">
+      <!-- 底部固定区域 -->
+      2017-2018 © 易企咨询管理平台
     </div>
   </div>
+
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
