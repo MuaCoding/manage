@@ -192,6 +192,10 @@
   color: #fff;
 }
 
+
+
+
+
 /**
 * 模拟select
 **/
@@ -337,4 +341,82 @@
 
 .content .user-list li span .btn-action+.btn-action {
   margin-left: 10px;
+}
+
+#userDiv {
+  display: none;
+  padding: 25px;
+  width: 300px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+#userDiv .div-title .title {
+  margin-bottom: 15px;
+  width: 100%;
+  line-height: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #111;
+}
+
+#userDiv .input-list ul li {
+  margin-bottom: 15px;
+}
+
+#userDiv .input-list ul li .label {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  line-height: 25px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+#userDiv .input-list ul li .input {
+  width: 100%;
+  padding: 0 5px;
+  height: 33px;
+  line-height: 33px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+#userDiv .buttons {
+  text-align: center;
+}
+
+#userDiv .buttons .button {
+  display: inline-block;
+  margin: 15px 5px 0 5px;
+  width: 75px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+#userDiv .buttons .button.cancelBtn{
+      color: #333;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+#userDiv .buttons .button.newBtn{
+    color: #fff;
+    border: 1px solid #1E9FFF;
+    background-color: #1E9FFF;
+}
+#userDiv .buttons .button.editBtn{
+    color: #fff;
+    border: 1px solid #1E9FFF;
+    background-color: #1E9FFF;
+}
+
+#userDiv .buttons .button.editBtn.none,#userDiv .buttons .button.newBtn.none{
+  display: none;
 }

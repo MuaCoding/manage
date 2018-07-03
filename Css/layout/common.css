@@ -89,11 +89,11 @@ iframe{
     overflow: hidden;
 }
 
-.hide {
+.none {
     display: none;
 }
 
-.show {
+.block {
     display: block;
 }
 

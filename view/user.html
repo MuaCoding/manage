@@ -8,11 +8,8 @@
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
-
-
   <link href="/Plugin/layui/css/layui.css" rel="stylesheet" media="all">
   <link href="/Css/layout/bootstrap.min.css" rel="stylesheet">
-
   <link href="/Css/layout/common.css" rel="stylesheet" />
   <link href="/Css/layout/site.css" rel="stylesheet" />
   <link href="/Css/index.css" rel="stylesheet" />
@@ -33,55 +30,73 @@
     </li>
   </script>
   <div class="content">
-  	<h1 class="page-title">
-  		<span>用户管理</span>
-  	</h1> 
-	<div class="action-bar clearfix">
-    <div class="bar-left fl">
-      <button class="layui-btn layui-btn-normal" onclick="user.modify()">
-        <i class="layui-icon">&#xe654;</i>新增
-      </button>
-    </div>
-    <div class="demoTable fr">
-      <div class="layui-inline">
-        <input class="layui-input" name="search" id="search" autocomplete="off">
+    <h1 class="page-title">
+      <span>用户管理</span>
+    </h1>
+    <div class="action-bar clearfix">
+      <div class="bar-left fl">
+        <button class="layui-btn layui-btn-normal" onclick="user.modify()">
+          <i class="layui-icon">&#xe654;</i>新增
+        </button>
       </div>
-      <button class="layui-btn" data-type="reload">搜索</button>
+      <div class="demoTable fr">
+        <div class="layui-inline">
+          <input class="layui-input" name="search" id="search" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="reload">搜索</button>
+      </div>
     </div>
-  </div>
+    <div class="user-list">
+      <div class="list-header clearfix">
+        <span>#</span>
+        <span>用户名</span>
+        <span>登录次数</span>
+        <span>最后登录</span>
+        <span>登录Ip</span>
+        <span>操作</span>
+      </div>
+      <ul class="list-body" id="div_list">
+      </ul>
+    </div>
 
-  <div class="user-list">
-    <div class="list-header clearfix">
-      <span>#</span>
-      <span>用户名</span>
-      <span>登录次数</span>
-      <span>最后登录</span>
-      <span>登录Ip</span>
-      <span>操作</span>
+    <div id="userDiv">
+      <div class="div-title">
+        <p class="title">添加用户</p>
+      </div>
+      <div class="input-list">
+        <ul>
+          <li class="username">
+            <span class="label">用户名</span>
+            <input type="text" class="input" maxlength="10" placeholder="请输入用户名">
+          </li>
+          <li class="password">
+            <span class="label">密码</span>
+            <input type="password" class="input" maxlength="2ss0" placeholder="请输入密码">
+          </li>
+        </ul>
+      </div>
+      <div class="buttons">
+        <a href="javascript:void(0);" class="newBtn button" onclick="upload(true)">确认添加</a>
+        <a href="javascript:void(0);" class="editBtn button none" onclick="upload(false)">确认修改</a>
+        <a href="javascript:void(0);" class="cancelBtn button">取消</a>
+      </div>
     </div>
-    
-    <ul class="list-body" id="div_list">
-    </ul>
-    
-  </div>
-	<!-- <div class="table">
-		<table id="main-table" lay-filter="demo"></table>
+    <!-- <div class="table">
+    <table id="main-table" lay-filter="demo"></table>
     <script type="text/html" id="barDemo">
       <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
       <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
-	</div> -->
+  </div> -->
   </div>
-
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
   <script src="/Plugin/jquery.tmpl.js"></script>
-  <script src="/Plugin/layui/layui.js"></script>
+  <script src="/Plugin/layer/layer.js"></script>
   <script src="/Js/layout/bootstrap.min.js"></script>
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
   <script src="/Js/user/user.js"></script>
-
 </body>
 
 </html>
