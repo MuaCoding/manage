@@ -14,7 +14,7 @@ var imgData = null,
     return false;
   },
   //头像操作功能
-  avatar = {
+  increase = {
     //获取用户头像信息
     getData: function () {
       var $this = this,

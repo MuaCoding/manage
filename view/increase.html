@@ -21,17 +21,7 @@
 </head>
 
 <body class="layui-layout-body" style="min-height: 650px;">
-  <!-- 菜单选项 -->
-  <script id="option-list" type="text/x-jquery-tmpl">
-    <li class="option-item clearfix">
-      <a href="javascript:;" class="top">站点</a>
-      <ul >
-        <li class="opt-cell">
-          <a onclick="avatar.select()">首页轮播</a>
-        </li>
-      </ul>
-    </li>
-  </script>
+  
   <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
       <div class="layui-logo">易企咨询</div>
@@ -64,7 +54,7 @@
           <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
           <ul id="slide-menu" class="layui-nav layui-nav-tree" lay-filter="sys">
             <li class="layui-nav-item layui-nav-itemed">
-              <a class="" href="javascript:;">首页</a>
+              <a class="" href="javascript:;">系统管理</a>
               <dl class="layui-nav-child">
                 <dd>
                   <a href="/view/user.html">用户管理</a>
@@ -126,7 +116,7 @@
               <script id="editor" type="text/plain" style="min-width: 760px;height:500px;"></script>
             </div>
             <div class="buttons input-group">
-              <button id="submin-btn" class="layui-btn" onclick="avatar.finishUpload()">立即提交</button>
+              <button id="submin-btn" class="layui-btn" onclick="increase.finishUpload()">立即提交</button>
               <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
             </div>
           </div>
@@ -150,10 +140,9 @@
   <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
-  <script src="/Js/user/avatar.js"></script>
+  <script src="/Js/user/increase.js"></script>
   <script>
     var ue = UE.getEditor('editor');
-    window.UEDITOR_HOME_URL = "192.168.1.101";
   </script>
 </body>
 

@@ -1,5 +1,4 @@
 // 表格
-
 $(function() {
   user.init();
 });
