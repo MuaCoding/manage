@@ -14,8 +14,8 @@
   height: 100%;
 }
 
-.layui-layer-shade{
-  z-index: 100!important;
+.layui-layer-shade {
+  z-index: 100 !important;
 }
 
 .content {
@@ -195,10 +195,6 @@
 .layui-layout .layui-header .layui-nav .layui-nav-item.active a {
   color: #fff;
 }
-
-
-
-
 
 /**
 * 模拟select
@@ -405,22 +401,92 @@
   border-radius: 2px;
 }
 
-#userDiv .buttons .button.cancelBtn{
-      color: #333;
-    border: 1px solid #ccc;
-    background-color: #fff;
-}
-#userDiv .buttons .button.newBtn{
-    color: #fff;
-    border: 1px solid #1E9FFF;
-    background-color: #1E9FFF;
-}
-#userDiv .buttons .button.editBtn{
-    color: #fff;
-    border: 1px solid #1E9FFF;
-    background-color: #1E9FFF;
+#userDiv .buttons .button.cancelBtn {
+  color: #333;
+  border: 1px solid #ccc;
+  background-color: #fff;
 }
 
-#userDiv .buttons .button.editBtn.none,#userDiv .buttons .button.newBtn.none{
+#userDiv .buttons .button.newBtn {
+  color: #fff;
+  border: 1px solid #1E9FFF;
+  background-color: #1E9FFF;
+}
+
+#userDiv .buttons .button.editBtn {
+  color: #fff;
+  border: 1px solid #1E9FFF;
+  background-color: #1E9FFF;
+}
+
+#userDiv .buttons .button.editBtn.none,
+#userDiv .buttons .button.newBtn.none {
   display: none;
+}
+
+.content .tree-list .tree-header {
+  line-height: 54px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f8f8;
+}
+
+.content .tree-list ul {
+  width: 100%;
+  line-height: 54px;
+  cursor: pointer;
+}
+
+.content .tree-list .tree-header span,
+.content .tree-list .tree-body li span {
+  float: left;
+  display: inline-block;
+  width: 25%;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #42454a;
+}
+
+.content .tree-list .tree-header span.opera,
+.content .tree-list .tree-body li span.opera {
+  width: 35%;
+}
+.content .tree-list .tree-body li span.name{
+  width: 30%;
+  padding-left: 60px;
+  text-align: left;
+}
+.content .tree-list .tree-header .name{
+  width: 30%;
+  padding-left: 40px;
+  text-align: left;
+}
+.content .tree-list .tree-body li {
+  /* border-bottom: 1px solid #eee; */
+}
+.content .tree-list .tree-header span.id,
+.content .tree-list .tree-body li span.id {
+  width: 10%;
+}
+.content .tree-list .tree-body li span .none {
+  display: none;
+}
+.content .tree-list li span .btn-action {
+  display: inline-block;
+  line-height: 25px;
+  padding: 0 6px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+}
+
+.content .tree-list li span .btn-action+.btn-action {
+  margin-left: 10px;
+}
+
+#child-box,
+#btnCrop {
+  display: none;
+}
+.content .tree-list .tree-body li #child-box .show {
+  display: block;
 }

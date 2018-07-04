@@ -29,7 +29,6 @@ var imgUrl = null,
         if (a.detail.length == 1) {
           $('#edit').show();
           $('#list').hide();
-
           $this.render(a);
         } else if (a.detail.length > 1) {
           $('#list').show();
@@ -97,7 +96,7 @@ var imgUrl = null,
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     render: function (data) {
-      console.log(data)
+      // console.log(data)
       $('#title').val(data.detail[0].Name);
 
       for (var i = 0; i < data.parent.length - 1; i++) {
@@ -106,7 +105,7 @@ var imgUrl = null,
       }
 
       $(".select-header").text(data.parent[data.parent.length - 2].Name);
-      $(".select-header").attr('value', data.parent[data.parent.length - 1].PID);
+      $(".select-header").attr('value', data.parent[data.parent.length - 1].ID);
 
       $('#sort').val(data.detail[0].OrderNum);
       $('#editor').val(data.detail[0].Name);

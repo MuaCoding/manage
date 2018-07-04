@@ -21,7 +21,7 @@
   <title>易企咨询-管理平台</title>
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
-
+  <link href="//at.alicdn.com/t/font_701636_eraf6eifm8.css" rel="stylesheet" />
   <link href="../Plugin/layui/css/layui.css" rel="stylesheet" media="all">
 
   <link href="../Css/layout/common.css" rel="stylesheet" />
@@ -31,19 +31,7 @@
 </head>
 
 <body class="layui-layout-body">
-  <!-- 菜单列表 -->
-  <script id="menu-list" type="text/x-jquery-tmpl">
-    <li class="list-item clearfix">
-      <span>${ID}</span>
-      <span>${UserName || '&nbsp;'}</span>
-      <span>${OrderNum || '&nbsp;'}</span>
-      <span>
-        <em class="btn-action" onclick="user.delete(${ID})">添加子项</em>
-        <em class="btn-action" onclick="user.modify(${ID})">修改</em>
-        <em class="btn-action" onclick="user.delete(${ID})">删除</em>
-      </span>
-    </li>
-  </script>
+  
   <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
       <div class="layui-logo">易企咨询</div>
@@ -86,7 +74,7 @@
                 </dd>
               </dl>
             </li>
-            
+
           </ul>
         </div>
       </div>
@@ -100,26 +88,19 @@
             </h1>
             <div class="action-bar clearfix">
               <div class="bar-left fl">
-                <button class="layui-btn layui-btn-normal" onclick="user.modify()">
+                <a class="layui-btn layui-btn-normal" href="/view/increase.html?id=1&type=1">
                   <i class="layui-icon">&#xe654;</i>新增
-                </button>
-              </div>
-              <div class="demoTable fr">
-                <span style="margin-right: 10px;">用户名</span>
-                <div class="layui-inline">
-                  <input class="layui-input" name="search" id="search" autocomplete="off">
-                </div>
-                <button class="layui-btn" onclick="user.search()">搜索</button>
+                </a>
               </div>
             </div>
-            <div class="user-list">
-              <div class="list-header clearfix">
-                <span>#</span>
-                <span>类别名称</span>
+            <div class="tree-list">
+              <div class="tree-header clearfix">
+                <span class="id">#</span>
+                <span class="name">类别名称</span>
                 <span>排序</span>
-                <span>操作</span>
+                <span class="opera">操作</span>
               </div>
-              <ul class="list-body" id="div_list">
+              <ul class="tree-body" id="div_tree">
               </ul>
             </div>
           </div>
@@ -137,15 +118,13 @@
   <script src="/Plugin/layui/layui.js"></script>
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
-  <script src="/Js/layout/system.js"></script>
+  <script src="/Js/system/system.js"></script>
   <script>
-     
     //JavaScript代码区域
     layui.use('element', function () {
       var element = layui.element;
-      
+
     });
-  
   </script>
 </body>
 

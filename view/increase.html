@@ -69,8 +69,17 @@
       </div>
       <!-- 内容主体区域 -->
       <div class="layui-body">
+
         <div style="margin: 25px" id="scrollHeight">
           <div class="content">
+            <div class="action-bar clearfix">
+              <div class="bar-left fl">
+                <a class="layui-btn layui-btn-normal" href="/view/system.html">
+                  返回上一页
+                </a>
+              </div>
+            </div>
+
             <div class="input-group">
               <label class="label">类别名称</label>
               <input type="text" name="" id="title" class="input-item">
@@ -101,14 +110,14 @@
             </div>
             <div class="input-group">
               <label class="label">图片</label>
-              <div class="upload-list" onclick="$('#file').click();">
+              <div class="upload-list">
                 <div class="layui-upload-img" id="upload-img"></div>
                 <span></span>
               </div>
               <div class="upload-bar">
                 <input type="file" id="file">
-                <a type="file" href="javascript:void(0);" onclick="avatar.upload()">确认上传</a>
-                <!-- <input type="button" id="btnCrop" value="裁剪"> -->
+                <a type="file" href="javascript:void(0);" onclick="$('#file').click();">选择图片</a>
+                <input type="text" id="btnCrop">
               </div>
             </div>
             <div class="input-group">
@@ -132,7 +141,7 @@
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-  <script src="/Plugin/layui/layui.js"></script>
+  <script src="../Plugin/layer/layer.js"></script>
   <script src="/Plugin/cropbox/cropbox.js"></script>
   <script src="/Plugin/ueditor/ueditor.config.js"></script>
   <script src="/Plugin/ueditor/ueditor.all.min.js"></script>
@@ -142,7 +151,7 @@
   <script src="/Js/layout/site.js"></script>
   <script src="/Js/user/increase.js"></script>
   <script>
-    var ue = UE.getEditor('editor');
+    
   </script>
 </body>
 

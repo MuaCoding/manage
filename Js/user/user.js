@@ -136,7 +136,6 @@ var data = null,
     },
     validForm: function(data) {
       var invalid = false;
-      console.log(data)
       var formDiv = $(".input-list > ul");
       if (data.UserName == null || data.UserName == "" || typeof (data.UserName) == "undefined") {
         layer.msg("用户名必填");
