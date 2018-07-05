@@ -33,13 +33,6 @@
           
         </ul>
       </div>
-      
-      <!-- <div class="input-item">
-        <span>请选择</span>
-        <ul id="option-group" class="option-group">
-          <li value="" class="item"></li>
-        </ul>
-      </div> -->
     </div>
     <div class="input-group">
       <label class="label">排序</label>
@@ -58,61 +51,12 @@
     </div>
     <div class="input-group">
       <label class="label">发布内容</label>
-      <div id="editor">
-        <p>请输入</p>
-      </div>
+      <script id="container" type="text/plain" style="min-width: 760px;height:500px;"></script>
     </div>
     <div class="buttons input-group">
-      <button id="submin-btn" class="layui-btn">立即提交</button>
+      <button id="submin-btn" class="layui-btn" onclick="create.submit()">立即提交</button>
       <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
     </div>
-    <!-- <div class="layui-form form-group" lay-filter="edit">
-      <div class="layui-form-item">
-        <label class="layui-form-label">标题</label>
-        <div class="layui-input-block">
-          <input id="title" type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">所属类别</label>
-        <div class="layui-input-block">
-          <select id="option-group" lay-verify="required">
-            <option value=""></option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="layui-form-item">
-        <label class="layui-form-label">排序</label>
-        <div class="layui-input-block">
-          <input id="sort" type="text" name="sort" required lay-verify="required" placeholder="请输入数字" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">图片</label>
-        <div class="upload-list layui-input-inline">
-          <img class="layui-upload-img" id="upload-img">
-          <span></span>
-        </div>
-        <input type="file" id="file">
-        <input type="button" id="btnCrop" value="裁剪">
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">发布内容</label>
-        <div class="layui-input-block" id="edit-con">
-          <div id="editor">
-            <p>请输入</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="layui-form-item">
-        <div class="layui-input-block">
-          <button id="submin-btn" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-        </div>
-      </div>
-    </div> -->
   </div>
 
   <div id="list" class="content">
@@ -125,17 +69,11 @@
           <i class="layui-icon">&#xe654;</i>新增
         </a>
       </div>
-      <div class="demoTable fr">
-        <div class="layui-inline">
-          <input class="layui-input" name="search" id="search" autocomplete="off">
-        </div>
-        <button class="layui-btn" data-type="reload">搜索</button>
-      </div>
     </div>
     <div class="table">
       <table id="main-table" lay-filter="test"></table>
       <script type="text/html" id="barDemo">
-        <a id="edit" class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
       </script>
     </div>
@@ -151,12 +89,12 @@
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
+  <script src="/Plugin/ueditor/ueditor.config.js"></script>
+  <script src="/Plugin/ueditor/ueditor.all.min.js"></script>
   <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
   <script src="/Js/create/create.js"></script>
-  <script>
-  </script>
 </body>
 
 </html>

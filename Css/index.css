@@ -451,26 +451,32 @@
 .content .tree-list .tree-body li span.opera {
   width: 35%;
 }
-.content .tree-list .tree-body li span.name{
+
+.content .tree-list .tree-body li span.name {
   width: 30%;
   padding-left: 60px;
   text-align: left;
 }
-.content .tree-list .tree-header .name{
+
+.content .tree-list .tree-header .name {
   width: 30%;
   padding-left: 40px;
   text-align: left;
 }
+
 .content .tree-list .tree-body li {
   /* border-bottom: 1px solid #eee; */
 }
+
 .content .tree-list .tree-header span.id,
 .content .tree-list .tree-body li span.id {
   width: 10%;
 }
+
 .content .tree-list .tree-body li span .none {
   display: none;
 }
+
 .content .tree-list li span .btn-action {
   display: inline-block;
   line-height: 25px;
@@ -487,6 +493,26 @@
 #btnCrop {
   display: none;
 }
+
 .content .tree-list .tree-body li #child-box .show {
   display: block;
+}
+
+.side-box {
+  top: 60px;
+  width: 200px;
+  overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.side-scroll {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  overflow-x: hidden;
+}
+.bg-black {
+  background-color: #393D49 !important;
 }

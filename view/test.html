@@ -109,7 +109,7 @@
     // console.log(o)
     for (var i = 0; i < o.length; i++) {
       var urlstr = "";
-      console.log(o[i]["url"])
+      // console.log(o[i]["url"])
       try {
         if (typeof o[i]["url"] == "undefined") {
           urlstr = "<div><span>" + o[i]["userLevel"] + o[i]["name"] + "</span><ul>";
@@ -133,6 +133,7 @@
     //给有子对象的元素加
     $("#menuTree ul").each(function (index, element) {
       var ulContent = $(element).html();
+      console.log(ulContent)
       var spanContent = $(element).siblings("span").html();
       if (ulContent) {
         $(element).siblings("span").html(spanContent)
@@ -155,17 +156,19 @@
     })
   }()
 
-  /*树形列表展开*/
-  $("#btn_open").click(function () {
-    $("#menuTree ul").show(300);
-    curzt("-");
-  })
+  // /*树形列表展开*/
+  // $("#btn_open").click(function () {
+  //   alert(0)
+  //   $("#menuTree ul").show(300);
+  //   curzt("-");
+  // })
 
-  /*收缩*/
-  $("#btn_close").click(function () {
-    $("#menuTree ul").hide(300);
-    curzt("+");
-  })
+  // /*收缩*/
+  // $("#btn_close").click(function () {
+  //   $("#menuTree ul").hide(300);
+  //   curzt("+");
+  // })
+
   function curzt(v) {
     $("#menuTree span").each(function (index, element) {
       var ul = $(this).siblings("ul");

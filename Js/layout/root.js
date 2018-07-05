@@ -1,7 +1,6 @@
 // var apiUrl = "http://192.168.1.102:8888"
   // var apiUrl = "http://27.46.3.40:8888",
-// var apiUrl = "http://192.168.1.2:9999",
-var apiUrl = "http://byw4454900001.my3w.com",
+var apiUrl = "http://192.168.1.2:9999",
   mobileSite = "";
 jQuery.support.cors = !0;
 (function (a) {

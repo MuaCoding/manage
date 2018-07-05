@@ -30,7 +30,28 @@ var slide = {
       $('#slide-menu').append(html);
     }
   },
+  menuTree: function(){
+    
+    $(document).on("click", '#slide-menu li a', function () {
+      var dl = $(this).siblings("dl");
+      if (dl.find("dd").html() != null) {
+        if (dl.css("display") == "none") {
+          dl.show(300);
+        } else {
+          dl.hide(300);
+        }
+      }
+    });
+    // $(document).$("#slide-menu").find("li a").click(function () {
+      
+    // })
+  },
   init: function(){
     this.getData();
+    this.menuTree();
   }
 };
+
+$(document).on("click", '#slide-menu .buttons .cancelBtn', function () {
+  layer.close($index);
+});

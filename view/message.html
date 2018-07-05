@@ -62,16 +62,16 @@
           <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
           <ul id="slide-menu" class="layui-nav layui-nav-tree" lay-filter="sys">
             <li class="layui-nav-item layui-nav-itemed">
-              <a class="" href="javascript:;">系统管理  </a>
+              <a class="" href="javascript:;">系统管理</a>
               <dl class="layui-nav-child">
                 <dd>
-                  <a href="/view/user.html" style="background-color: #009688;">用户管理</a>
+                  <a href="/view/user.html">用户管理</a>
                 </dd>
                 <dd>
                   <a href="/view/system.html">类别管理</a>
                 </dd>
                 <dd>
-                  <a href="/view/message.html">留言管理</a>
+                  <a href="/view/message.html" style="background-color: #009688;">留言管理</a>
                 </dd>
               </dl>
             </li>
@@ -79,21 +79,16 @@
           </ul>
         </div>
       </div>
-        <!-- 内容主体区域 -->
+      <!-- 内容主体区域 -->
       <div class="layui-body">
         <div style="margin: 25px" id="scrollHeight">
           <div class="content">
             <h1 class="page-title">
-              <span>用户管理</span>
+              <span>留言管理</span>
             </h1>
             <div class="action-bar clearfix">
-              <div class="bar-left fl">
-                <button class="layui-btn layui-btn-normal" onclick="user.modify()">
-                  <i class="layui-icon">&#xe654;</i>新增
-                </button>
-              </div>
               <div class="demoTable fr">
-                <span style="margin-right: 10px;">用户名</span>
+                <span style="margin-right: 10px;">姓名</span>
                 <div class="layui-inline">
                   <input class="layui-input" name="search" id="search" autocomplete="off">
                 </div>
@@ -103,11 +98,10 @@
             <div class="user-list">
               <div class="list-header clearfix">
                 <span>#</span>
-                <span>用户名</span>
-                <span>登录次数</span>
-                <span>最后登录</span>
-                <span>登录Ip</span>
-                <span>操作</span>
+                <span>姓名</span>
+                <span>联系电话</span>
+                <span>邮箱地址</span>
+                <span>留言内容</span>
               </div>
               <ul class="list-body" id="div_list">
               </ul>

@@ -66,9 +66,8 @@ var imgData = null,
         $("#Url").val(data.parent[0].Url);
         // $("#title").val(data.parent[data.parent.length - 1].Name);
       }
-      console.log(data.parent[0].Name)
-      data.parent[0].Name == '' ? $(".select-header").text('站点') : $(".select-header").text(data.parent[data.parent.length - 1].Name);
-      data.parent[0].ID == '' ? $(".select-header").attr('value', 0) : $(".select-header").attr('value', data.parent[data.parent.length - 1].ID);
+      data.parent == '' ? $(".select-header").text('站点') : $(".select-header").text(data.parent[data.parent.length - 1].Name);
+      data.parent == '' ? $(".select-header").attr('value', 1) : $(".select-header").attr('value', data.parent[data.parent.length - 1].ID);
       
 
     },
@@ -79,7 +78,8 @@ var imgData = null,
         spinner: '.spinner',
         imgSrc: pic
       };
-      var cropper = $('.upload-list').cropbox(options);
+      var cropper = $('.upload-list').cropbox(options),
+        $this = this;
       $('#file').on('change', function () {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -87,29 +87,27 @@ var imgData = null,
           cropper = $('.upload-list').cropbox(options);
         }
         reader.readAsDataURL(this.files[0]);
-        console.log(cropper)
-        $('#btnCrop').attr('value', reader.result);
-        imgData = reader.result;
+        imgData = this.files[0];
+        console.log(this)
+        $this.upload(imgData);
         // imgData = cropper.getDataURL();
         this.files = [];
       });
     },
     //上传头像
-    upload: function () {
+    upload: function (imgData) {
       var formdata = {
-          img: imgData
-        },
-        $this = this;
+          Img: imgData
+        };
       $.method("POST", "/file/upload", null, JSON.stringify(formdata), null, null, function (data) {
-        if (data.Code) {
-          // $this.finishUpload(data.res_msg);
-          imgUrl = data.msg;
-        }
+        console.log(data)
+        imgUrl = data.msg;
+        // if (data.Code) {
+        //   // $this.finishUpload(data.res_msg);
+        //   imgUrl = data.msg;
+        // }
       }, function (request) {
-        var errCode = JSON.parse(request.responseText).err_code;
-        switch (errCode) {
-          default: jwtError(request);
-        }
+        
       });
     },
     //完成数据上传
@@ -118,8 +116,7 @@ var imgData = null,
         html = ue.getContent();
       });
       $this = this;
-      var imgData = $('#btnCrop').val();
-      console.log(imgData)
+      console.log(imgUrl)
       var formdata = {
         PID: $(".select-header").attr('value') || 0,
         Name: $('#title').val(),
@@ -133,7 +130,7 @@ var imgData = null,
           if (data.Code == 1) {
             layer.msg('创建成功');
             setTimeout(function () { //两秒后跳转
-              // window.location.href = "/view/system.html";
+              window.location.href = "/view/system.html";
             }, 2000);
           } else {
             layer.msg('创健失败');

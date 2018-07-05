@@ -1,41 +1,33 @@
-// 响应式
-// $(window).resize(function() // 绑定到窗口的这个事件中
-// {	
-//     var whdef = 120 / 1920;
-//     // 表示1920的设计图,使用100PX的默认值
-//     var wH = window.innerHeight;
-//     // 当前窗口的高度
-//     var wW = window.innerWidth;
-//     // 当前窗口的宽度
-//     var rem = wW * whdef;
-//     // 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
-//     $('html').css('font-size', rem + "px");
-// });
 
 
-(function () {
+$(function () {
   var iframes = $('#mainframe');
+  var iframeHeight = function(){
+    for (var i = 0, j = iframes.length; i < j; ++i) {
+      // 放在闭包中，防止iframe触发load事件的时候下标不匹配
+      (function (_i) {
+        iframes[_i].onload = function () {
+          var $this = this;
+          this.contentWindow.onbeforeunload = function () {
+            iframes[_i].style.visibility = 'hidden';
 
-  for (var i = 0, j = iframes.length; i < j; ++i) {
-    // 放在闭包中，防止iframe触发load事件的时候下标不匹配
-    (function (_i) {
-      iframes[_i].onload = function () {
-        this.contentWindow.onbeforeunload = function () {
-          iframes[_i].style.visibility = 'hidden';
-          // iframes[_i].style.display = 'none';
+            iframes[_i].setAttribute('height', 'auto');
+          };
 
-          iframes[_i].setAttribute('height', 'auto');
+          this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
+          this.style.display = 'block';
+          setTimeout(function(){
+            $('#scrollHeight').css('height', $this.contentWindow.document.body.scrollHeight + 'px')
+          }, 100);
+          this.style.visibility = 'visible';
+         
         };
-
-        this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
-        console.log(this.contentWindow.document.body.scrollHeight)
-        $('#scrollHeight').css('height', this.contentWindow.document.body.scrollHeight + 'px')
-        this.style.visibility = 'visible';
-        // this.style.display = 'block';
-      };
-    })(i);
+      })(i);
+    }
+    // setTimeout(iframeHeight, 100);
   }
-})();
+  iframeHeight();
+});
 
 // 轮播切换
 
@@ -117,3 +109,20 @@ $(function () {
     $(this).css("background-color", "#fff");
   });
 });
+
+
+// iframe 自适应高度
+
+// var iframe = document.getElementById("mainframe");
+// var iframeHeight = function () {
+  
+//   var hash = window.location.hash.slice(1), h;
+//   if (hash && /height=/.test(hash)) {
+//     h = hash.replace("height=", "");
+//     iframe.height = h;
+//   }
+//   console.log(hash )
+//   setTimeout(iframeHeight, 200);
+
+// };
+// iframeHeight();
