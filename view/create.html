@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <title>易企咨询</title>
-  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <!-- <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
   <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="//qidian.gtimg.com/lulu/theme/peak/css/common/ui/Select.css">
   <link href="//at.alicdn.com/t/font_701636_f1afs3axnk.css" rel="stylesheet" />
 
 
@@ -135,7 +135,7 @@
     <div class="table">
       <table id="main-table" lay-filter="test"></table>
       <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a id="edit" class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
       </script>
     </div>
@@ -150,22 +150,12 @@
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/placeholders/4.0.1/placeholders.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-  <script src="//qidian.gtimg.com/lulu/theme/peak/js/common/ui/Select.js"></script>
-  <script src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
   <script src="/Plugin/layui/layui.js"></script>
   <!-- <script src="/Js/layout/bootstrap.min.js"></script> -->
   <script src="/Js/layout/root.js"></script>
   <script src="/Js/layout/site.js"></script>
   <script src="/Js/create/create.js"></script>
   <script>
-  </script>
-  <script type="text/javascript">
-    var E = window.wangEditor;
-    var editor = new E(document.getElementById('editor'));
-    editor.customConfig.uploadImgServer = '/upload';
-    editor.create();
   </script>
 </body>
 
