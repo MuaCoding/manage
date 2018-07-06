@@ -1,4 +1,4 @@
-(function () {
+$(function () {
   // 登陆
   function login() {
     var username = $('.input-username').val(),
@@ -19,7 +19,7 @@
       switch (a.Code) {
         case 1:
           layer.msg("登录成功");
-          setCookie("USER_TOKEN", a.data, 10);
+          setCookie("USER_TOKEN", username, 10);
           window.location.replace("/");
           break;
         default:
@@ -30,4 +30,4 @@
   $('.layui-btn').click(function () {
     login();
   })
-})();
+});

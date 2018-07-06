@@ -22,7 +22,7 @@
 <body class="layui-layout-body" style="min-height: 650px;">
   <div id="edit" class="content">
     <div class="input-group">
-      <label class="label">标题</label>
+      <label class="label">所属名称</label>
       <input type="text" name="" id="title" class="input-item">
     </div>
     <div class="input-group">
@@ -50,6 +50,7 @@
       </div>
     </div>
     <div class="input-group">
+      <code id="testcon" style="display:none;"></code>
       <label class="label">发布内容</label>
       <script id="container" type="text/plain" style="min-width: 760px;height:500px;"></script>
     </div>
@@ -60,12 +61,12 @@
   </div>
 
   <div id="list" class="content">
-    <h1 class="page-title">
-      <span>轮播管理</span>
+    <h1 class="page-title" id="page-title">
+      <span>管理</span>
     </h1>
     <div class="action-bar clearfix">
-      <div class="bar-left fl">
-        <a class="layui-btn layui-btn-normal" data-method="offset" data-type="auto" href="/view/create.html" target="mainframe">
+      <div class="bar-left fl" id="bar-action">
+        <a class="layui-btn layui-btn-normal" href="/view/modify.html" target="mainframe">
           <i class="layui-icon">&#xe654;</i>新增
         </a>
       </div>

@@ -21,7 +21,7 @@ var slide = {
         for (var j in a[i].children) {
           var child =
             '<dd>' +
-            '<a href="/view/create.html?id=' + a[i].children[j].value.ID + '" target="mainframe">' + a[i].children[j].value.Name + '</a>' +
+            '<a href="/view/create.html?pid='+a[i].value.ID +'&cid=' + a[i].children[j].value.ID + '" target="mainframe">' + a[i].children[j].value.Name + '</a>' +
             '</dd>';
           html += child
         }
@@ -31,7 +31,6 @@ var slide = {
     }
   },
   menuTree: function(){
-    
     $(document).on("click", '#slide-menu li a', function () {
       var dl = $(this).siblings("dl");
       if (dl.find("dd").html() != null) {
@@ -42,9 +41,6 @@ var slide = {
         }
       }
     });
-    // $(document).$("#slide-menu").find("li a").click(function () {
-      
-    // })
   },
   init: function(){
     this.getData();

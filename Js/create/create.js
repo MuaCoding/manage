@@ -11,14 +11,16 @@ var imgUrl = null,
     getData: function () {
       var url = window.location.href,
         $this = this,
-        id = $this.getParme('id', url);
-
-      if (id == null) {
+        cid = $this.getParme('cid', url),
+        pid = $this.getParme('pid', url),//给新增添加跳转id
+        html = '<a class="layui-btn layui-btn-normal" href="/view/modify.html?pid='+pid+'" target="mainframe"><i class="layui-icon">&#xe654;</i>新增</a>'
+      $('#bar-action').append(html);
+      if (cid == null) {
         $('#index').show();
       } else {
         $('#list').show();
         $('#index').hide();
-        $this.getId(id); //获取
+        $this.getId(cid); //获取
       }
     },
     getId: function (id) {
@@ -67,7 +69,7 @@ var imgUrl = null,
                   align: 'center'
                 }, {
                   field: 'Url',
-                  title: '跳转地址',
+                  title: '网站地址',
                   align: 'center'
                 }, {
                   field: 'score',
@@ -110,7 +112,9 @@ var imgUrl = null,
       $(".select-header").attr('value', data.parent[data.parent.length - 1].ID);
 
       $('#sort').val(data.detail[0].OrderNum);
-      $('#editor').val(data.detail[0].Name);
+      $('#page-title').val(data.detail[0].Name);
+      $('#editcon').html(data.detail[0].html);
+
     },
     iframeHeight:function(){
       var hash = window.location.hash.slice(1), h;
@@ -130,6 +134,8 @@ var imgUrl = null,
 $(document).on("click", "#submin-btn", function () {
   var url = window.location.href,
     res = getUrl('id', url);
+      ue.execCommand('insertHtml', $('#editcon').html());
+    
   console.log(res)
   var formData = {
     PID: $(".select-header").attr('value'),
@@ -138,7 +144,7 @@ $(document).on("click", "#submin-btn", function () {
     sort: $('#sort').val(),
     Img: '',
     Url: '',
-    html: $('#editor').text()
+    html: ue.execCommand('insertHtml', $('#editcon').html())
   }
   console.log(formData)
   // $.method("POST", "/Category/update", null, JSON.stringify(formData), null, null, function (a) {

@@ -116,9 +116,8 @@ var imgData = null,
         html = ue.getContent();
       });
       $this = this;
-      console.log(imgUrl)
       var formdata = {
-        PID: $(".select-header").attr('value') || 0,
+        PID: $(".select-header").attr('value'),
         Name: $('#title').val(),
         OrderNum: $('#sort').val(),
         Img: imgData,
